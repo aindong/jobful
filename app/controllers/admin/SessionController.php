@@ -72,6 +72,26 @@ class SessionController extends \BaseController
         }
 
         // Check User permission
+        return $this->checkGroup($user);
+    }
+
+    public function logout()
+    {
+        Sentry::logout();
+        return Redirect::to('/');
+    }
+
+    private function checkGroup($user)
+    {
+        if ($user->inGroup(Sentry::findGroupByName('super admin'))) {
+            return Redirect::to('/admin');
+        } else if ($user->inGroup(Sentry::findGroupByName('admin'))) {
+            return Redirect::to('/admin');
+        } else if ($user->inGroup(Sentry::findGroupByName('trainers'))) {
+            return Redirect::to('/trainers');
+        } else if ($user->inGroup(Sentry::findGroupByName('trainee'))) {
+            return Redirect::to('/trainee');
+        }
     }
 
     public function registerAdmin()
