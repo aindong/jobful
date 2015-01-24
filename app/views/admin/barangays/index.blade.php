@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <table id="example" class="display" cellspacing="0" width="100%">
+    <table id="example" class="display table table-striped" cellspacing="0" width="100%">
         <thead>
         <tr>
             <th></th>

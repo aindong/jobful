@@ -3,7 +3,7 @@
 use View;
 use Response;
 use Validator;
-use Barangay;
+use Course;
 use Input;
 use Redirect;
 
@@ -17,8 +17,10 @@ class CoursesController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
-		return View::make('admin.courses.index');
+		$all = \Course::all();
+
+        return View::make('admin.courses.index')
+            ->with('list', $all);
 	}
 
 	/**
@@ -30,6 +32,7 @@ class CoursesController extends \BaseController {
 	public function create()
 	{
 		//
+		return View::make('admin.courses.create');
 	}
 
 	/**
@@ -40,7 +43,18 @@ class CoursesController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$validator = Validator::make(Input::all(), \Course::$rules);
+
+    	if (!$validator->fails()) {
+    		\Course::create( Input::all() );
+
+    		return Redirect::route( 'admin.courses.create' )
+    			->withMessage( 'Data passed validation checks' );
+    	} else {
+    		return Redirect::route( 'admin.courses.create' )
+    			->withInput()
+    			->withErrors( $validator );	
+    	}
 	}
 
 	/**
@@ -52,7 +66,10 @@ class CoursesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$course = \Course::find($id);
+
+        return View::make('admin.courses.show')
+            ->with('course', $course);
 	}
 
 	/**
@@ -64,7 +81,12 @@ class CoursesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$course = \Course::find($id);
+
+		\Debugbar::info($course);
+
+		return View::make('admin.courses.edit')
+            ->with('course', $course);
 	}
 
 	/**
@@ -88,7 +110,12 @@ class CoursesController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$course = \Course::find($id);
+        $course->delete();
+
+        // redirect
+        Session::flash('message', 'Successfully deleted the course!');
+        return Redirect::to('nerds');
 	}
 
 }

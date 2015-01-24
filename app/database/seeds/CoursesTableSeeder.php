@@ -12,7 +12,7 @@ class CoursesTableSeeder extends Seeder {
 		foreach(range(1, 10) as $index)
 		{
 			Course::create([
-
+                
 			]);
 		}
 	}
