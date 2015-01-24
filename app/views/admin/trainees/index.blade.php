@@ -74,7 +74,16 @@
                     <td>{{{ $trainee->user->email }}}</td>
                     <td>{{{ $trainee->created_at }}}</td>
                     <td>{{{ $trainee->updated_at }}}</td>
-                    <td>Add | Delete</td>
+                    <td>
+                        <a class="btn btn-small btn-success" href="{{ URL::to('admin/trainees/' . $trainee->id) }}">show</a>
+                        |
+                        <a class="btn btn-small btn-info" href="{{ URL::to('admin/trainees/' . $trainee->id . '/edit') }}">edit</a>
+
+                        {{ Form::open(array('url' => 'admin/trainees/' . $trainee->id, 'class' => 'pull-right')) }}
+                        {{ Form::hidden('_method', 'DELETE') }}
+                        {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
+                        {{ Form::close() }}
+                    </td>
                 </tr>
             @endforeach
             <tbody>

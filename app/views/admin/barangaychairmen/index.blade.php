@@ -44,7 +44,16 @@
                     <td>{{{ $barangaychairman->barangay->barangay }}}</td>
                     <td>{{{ $barangaychairman->created_at }}}</td>
                     <td>{{{ $barangaychairman->updated_at }}}</td>
-                    <td>Add | Delete</td>
+                    <td>
+                        <a class="btn btn-small btn-success" href="{{ URL::to('admin/barangaychairmen/' . $barangaychairman->id) }}">show</a>
+                        |
+                        <a class="btn btn-small btn-info" href="{{ URL::to('admin/barangaychairmen/' . $barangaychairman->id . '/edit') }}">edit</a>
+
+                        {{ Form::open(array('url' => 'admin/barangaychairmen/' . $barangaychairman->id, 'class' => 'pull-right')) }}
+                        {{ Form::hidden('_method', 'DELETE') }}
+                        {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
+                        {{ Form::close() }}
+                    </td>
                 </tr>
             @endforeach
             <tbody>
