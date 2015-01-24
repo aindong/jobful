@@ -1,4 +1,4 @@
-@extends('layouts.trainer)
+@extends('layouts.trainer')
 
 @section('content')
 

@@ -1,4 +1,4 @@
-@extends('layouts.kapitan)
+@extends('layouts.kapitan')
 
 @section('content')
 

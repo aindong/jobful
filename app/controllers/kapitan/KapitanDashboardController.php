@@ -1,5 +1,7 @@
 <?php namespace Controllers\Kapitan;
 
+use View;
+
 class KapitanDashboardController extends \BaseController
 {
     public function index()
