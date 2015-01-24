@@ -20,3 +20,10 @@ Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function
 	Route::resource('trainers', 'TrainersController');
 	Route::resource('trainees', 'TraineesController');
 });
+
+/**
+ * Front routes
+ */
+Route::group(['namespace' => 'Controllers\Front'], function() {
+
+});
