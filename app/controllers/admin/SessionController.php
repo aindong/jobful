@@ -3,6 +3,8 @@
 use View;
 use \Sentry;
 use Input;
+use Session;
+use Redirect;
 
 class SessionController extends \BaseController
 {
@@ -19,6 +21,7 @@ class SessionController extends \BaseController
 
     public function doLogin()
     {
+        // Check user credentials
         try
         {
             // Login credentials
@@ -30,40 +33,131 @@ class SessionController extends \BaseController
             // Authenticate the user
             $user = Sentry::authenticate($credentials, false);
         }
-        catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
+        catch (\Cartalyst\Sentry\Users\LoginRequiredException $e)
         {
-            echo 'Login field is required.';
+            Session::flash('error', 'Login field is required.');
+            return Redirect::back()->withInput();
         }
-        catch (Cartalyst\Sentry\Users\PasswordRequiredException $e)
+        catch (\Cartalyst\Sentry\Users\PasswordRequiredException $e)
         {
-            echo 'Password field is required.';
+            Session::flash('error', 'Password field is required.');
+            return Redirect::back()->withInput();
         }
-        catch (Cartalyst\Sentry\Users\WrongPasswordException $e)
+        catch (\Cartalyst\Sentry\Users\WrongPasswordException $e)
         {
-            echo 'Wrong password, try again.';
+            Session::flash('error', 'Wrong password, try again.');
+            return Redirect::back()->withInput();
         }
-        catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
+        catch (\Cartalyst\Sentry\Users\UserNotFoundException $e)
         {
-            echo 'User was not found.';
+            Session::flash('error', 'User was not found.');
+            return Redirect::back()->withInput();
         }
-        catch (Cartalyst\Sentry\Users\UserNotActivatedException $e)
+        catch (\Cartalyst\Sentry\Users\UserNotActivatedException $e)
         {
-            echo 'User is not activated.';
+            Session::flash('error', 'User is not activated.');
+            return Redirect::back()->withInput();
         }
 
         // The following is only required if the throttling is enabled
-        catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e)
+        catch (\Cartalyst\Sentry\Throttling\UserSuspendedException $e)
         {
-            echo 'User is suspended.';
+            Session::flash('error', 'User is suspended.');
+            return Redirect::back()->withInput();
         }
-        catch (Cartalyst\Sentry\Throttling\UserBannedException $e)
+        catch (\Cartalyst\Sentry\Throttling\UserBannedException $e)
         {
-            echo 'User is banned.';
+            Session::flash('error', 'User is banned.');
+            return Redirect::back()->withInput();
+        }
+
+        // Check User permission
+        return $this->checkGroup($user);
+    }
+
+    public function logout()
+    {
+        Sentry::logout();
+        return Redirect::to('/');
+    }
+
+    private function checkGroup($user)
+    {
+        if ($user->inGroup(Sentry::findGroupByName('super admin'))) {
+            return Redirect::to('/admin');
+        } else if ($user->inGroup(Sentry::findGroupByName('admin'))) {
+            return Redirect::to('/admin');
+        } else if ($user->inGroup(Sentry::findGroupByName('trainers'))) {
+            return Redirect::to('/trainers');
+        } else if ($user->inGroup(Sentry::findGroupByName('trainee'))) {
+            return Redirect::to('/trainee');
         }
     }
 
     public function registerAdmin()
     {
+        // Create the groups
+        try
+        {
+            // Create the group
+            $superadmin = Sentry::createGroup(array(
+                'name'        => 'super admin'
+            ));
 
+            $admin = Sentry::createGroup(array(
+                'name'        => 'admin'
+            ));
+
+            $trainee = Sentry::createGroup(array(
+                'name'        => 'trainee'
+            ));
+
+            $trainers = Sentry::createGroup(array(
+                'name'        => 'trainers'
+            ));
+
+            // Register a user
+            try
+            {
+                // Create the user
+                $user = Sentry::createUser(array(
+                    'email'     => 'admin@admin.com',
+                    'password'  => 'admin',
+                    'activated' => true,
+                ));
+
+                // Find the group using the group id
+                $adminGroup = Sentry::findGroupByName('super admin');
+
+                // Assign the group to the user
+                $user->addGroup($adminGroup);
+            }
+            catch (\Cartalyst\Sentry\Users\LoginRequiredException $e)
+            {
+                echo 'Login field is required.';
+            }
+            catch (\Cartalyst\Sentry\Users\PasswordRequiredException $e)
+            {
+                echo 'Password field is required.';
+            }
+            catch (\Cartalyst\Sentry\Users\UserExistsException $e)
+            {
+                echo 'User with this login already exists.';
+            }
+            catch (\Cartalyst\Sentry\Groups\GroupNotFoundException $e)
+            {
+                echo 'Group was not found.';
+            }
+        }
+        catch (\Cartalyst\Sentry\Groups\NameRequiredException $e)
+        {
+            echo 'Name field is required';
+        }
+        catch (\Cartalyst\Sentry\Groups\GroupExistsException $e)
+        {
+            echo 'Group already exists';
+        }
+
+        echo 'Successfully setup the accounts';
     }
 }

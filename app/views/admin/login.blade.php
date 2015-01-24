@@ -6,6 +6,12 @@
 <body>
 
 <div class="content">
+    @if(Session::has('error'))
+        <div class="alert alert-danger">
+            <span>{{ Session::get('error') }}</span>
+        </div>
+    @endif
+
     {{ Form::open(['route' => 'user.dologin', 'class' => 'form']) }}
         <div class="form-group">
             {{ Form::label('email', 'Email', ['class' => 'form-label']) }}
