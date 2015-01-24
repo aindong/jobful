@@ -4,7 +4,7 @@
 </div>
 
 <div class="form-group">
-    {{ Form::label('description', 'Title', ['class' => 'form-label']) }}
+    {{ Form::label('description', 'Description', ['class' => 'form-label']) }}
     {{ Form::textarea('description', null, ['class' => 'form-control', 'required' => 'required']) }}
 </div>
 

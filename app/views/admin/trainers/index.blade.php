@@ -7,7 +7,7 @@
         </div>
     @endif
 
-    <a href="/admin/employers/create" class="btn btn-primary">Create New Trainer</a>
+    <a href="/admin/trainers/create" class="btn btn-primary">Create New Trainer</a>
     <br/>
     <br/>
 
@@ -52,7 +52,11 @@
                     <td>{{{ $trainer->country }}}</td>
                     <td>{{{ $trainer->created_at }}}</td>
                     <td>{{{ $trainer->updated_at }}}</td>
-                    <td>Add | Delete</td>
+                    <td>
+                        <a href="/admin/trainers/{{{ $trainer->id }}}/edit">Edit</a>
+                        |
+                        <a href="#" data-id="{{ $trainer->id }}">Delete</a>
+                    </td>
                 </tr>
             @endforeach
         <tbody>
