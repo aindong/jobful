@@ -2,12 +2,12 @@
 
 @section('content')
     {{ Form::open([
-        'route' => 'admin.employers.store',
+        'route' => 'admin.organizations.store',
         'method' => 'post',
         'class' => 'form',
         'role' => 'form'
     ]) }}
 
-        @include('admin.employers.form.form')
+        @include('admin.organizations.form.form')
     {{ Form::close() }}
 @stop

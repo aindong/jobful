@@ -2,7 +2,7 @@
 
 @section('content')
     {{ Form::model($employer, [
-        'route' => 'admin.employers.update',
+        'route' => 'admin.organizations.update',
         'method' => 'put',
         'class' => 'form',
         'role' => 'form'
