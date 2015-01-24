@@ -17,8 +17,10 @@ class CoursesController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
-		return View::make('admin.courses.index');
+		$all = \Course::all();
+
+        return View::make('admin.courses.index')
+            ->with('list', $all);
 	}
 
 	/**
@@ -64,8 +66,10 @@ class CoursesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
-		return View::make('admin.courses.show');
+		$course = \Course::find($id);
+
+        return View::make('admin.courses.show')
+            ->with('course', $course);
 	}
 
 	/**
@@ -77,8 +81,12 @@ class CoursesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
-		return View::make('admin.courses.edit');
+		$course = \Course::find($id);
+
+		\Debugbar::info($course);
+
+		return View::make('admin.courses.edit')
+            ->with('course', $course);
 	}
 
 	/**
@@ -102,7 +110,12 @@ class CoursesController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$course = \Course::find($id);
+        $course->delete();
+
+        // redirect
+        Session::flash('message', 'Successfully deleted the course!');
+        return Redirect::to('nerds');
 	}
 
 }

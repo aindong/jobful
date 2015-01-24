@@ -28,7 +28,7 @@
 {{ Form::open( array(
     'route' => 'admin.courses.store',
     'method' => 'post',
-    'id' => 'courses-create',
+    'id' => 'courses-form',
 ) ) }}
 
 @if ($errors->has())

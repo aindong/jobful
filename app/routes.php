@@ -22,7 +22,7 @@ Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function
 	Route::resource('trainers', 'TrainersController');
 	Route::resource('trainees', 'TraineesController');
 
-    Route::resource('courses', 'CoursesController', ['only' => array( 'create', 'store' )]);
+    Route::resource('courses', 'CoursesController');
 });
 
 /**
