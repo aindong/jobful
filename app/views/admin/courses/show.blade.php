@@ -1,0 +1,1 @@
+/Users/primerg/www/devsites/hacktarlac/app/views/courses/show.blade.php

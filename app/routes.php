@@ -21,6 +21,8 @@ Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function
 	Route::resource('employers', 'EmployersController');
 	Route::resource('trainers', 'TrainersController');
 	Route::resource('trainees', 'TraineesController');
+
+    Route::resource('courses', 'CoursesController');
 });
 
 /**
@@ -29,3 +31,5 @@ Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function
 Route::group(['namespace' => 'Controllers\Front'], function() {
 
 });
+
+
