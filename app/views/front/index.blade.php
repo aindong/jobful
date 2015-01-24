@@ -81,7 +81,7 @@
                         Morbi nec metus. Etiam iaculis nunc ac metus. Cras non dolor. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. In turpis.</p>
                 </div>
 
-                <button class="pull-right col-xs-4" onclick="location-href='#'">Go to Request Tools</button>
+                <button class="pull-right col-xs-4" onclick="location.href='/training/request'">Go to Request Tools</button>
             </div><!--end of .row-->
         </div><!--end of .container-->
     </div><!--end of .request-training-tools-->
