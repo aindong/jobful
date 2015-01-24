@@ -1,4 +1,14 @@
 <div class="form-group">
+    {{ Form::label('email', 'Email Address*', ['class' => 'form-label']) }}
+    {{ Form::text('email', null, ['class' => 'form-control', 'required' => 'required']) }}
+</div>
+
+<div class="form-group">
+    {{ Form::label('password', 'Password *', ['class' => 'form-label']) }}
+    {{ Form::password('password', ['class' => 'form-control', 'required' => 'required']) }}
+</div>
+
+<div class="form-group">
     {{ Form::label('fname', 'First Name *', ['class' => 'form-label']) }}
     {{ Form::text('fname', null, ['class' => 'form-control', 'required' => 'required']) }}
 </div>
