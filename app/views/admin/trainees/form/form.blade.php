@@ -71,12 +71,8 @@
 
 <div class="form-group">
     {{ Form::label('bday', 'Birth Date', ['class' => 'form-label']) }}
-    {{ Form::text('bday', null, ['class' => 'form-control', 'required' => 'required']) }}
+    {{ Form::text('bday', null, ['class' => 'form-control datepicker', 'required' => 'required']) }}
 </div>
-
-<div class="well">
-            <input type="text" class="span2" value="02-16-2012" id="dp1">
-          </div>
 
 <div class="form-group">
     {{ Form::label('attainment', 'Educational Attainment', ['class' => 'form-label']) }}

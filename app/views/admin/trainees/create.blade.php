@@ -11,3 +11,11 @@
         @include('admin.trainees.form.form')
     {{ Form::close() }}
 @stop
+
+@section('page-script')
+    <script type="text/javascript">
+        $(function() {
+            $('.datepicker').datepicker();
+        });
+    </script>
+@stop
