@@ -1,4 +1,11 @@
-<?php
+<?php namespace Controllers\Admin;
+
+use View;
+use Response;
+use Validator;
+use Models\Models\Event;
+use Input;
+use Redirect;
 
 class EventsController extends \BaseController {
 
@@ -10,7 +17,10 @@ class EventsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$all = \Models\Event::all();
+
+        return View::make('admin.events.index')
+            ->with('list', $all);
 	}
 
 	/**
@@ -21,7 +31,15 @@ class EventsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$lookup = \Course::all();
+		$courses = [];
+		foreach ($lookup as $key => $value) {
+			$courses[$value->id] = $value->title;
+		}
+		$trainers = [];
+		return View::make('admin.events.create')
+			->with('courses', $courses)
+			->with('trainers', $trainers);
 	}
 
 	/**
@@ -32,7 +50,24 @@ class EventsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$validator = Validator::make(Input::all(), \Models\Event::$rules);
+
+    	if (!$validator->fails()) {
+    		$event = new \Models\Event();
+    		$event->course_id = Input::get('course_id');
+    		$event->trainer_id = Input::get('trainer_id');
+    		$event->start_date = date('Y-m-d H:i:s', strtotime(Input::get('start_date')));
+    		$event->end_date = date('Y-m-d H:i:s', strtotime(Input::get('end_date')));
+    		
+			$data = \Models\Event::create(Input::all());
+
+    		return Redirect::route( 'admin.events.edit', $data->id )
+    			->withMessage( 'Data passed validation checks' );
+    	} else {
+    		return Redirect::route( 'admin.events.create' )
+    			->withInput()
+    			->withErrors( $validator );	
+    	}
 	}
 
 	/**
@@ -44,7 +79,10 @@ class EventsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$event = \Models\Event::find($id);
+
+        return View::make('admin.events.show')
+            ->with('event', $event);
 	}
 
 	/**
@@ -56,7 +94,18 @@ class EventsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$event = \Models\Event::find($id);
+		$lookup = \Course::all();
+		$courses = [];
+		foreach ($lookup as $key => $value) {
+			$courses[$value->id] = $value->title;
+		}
+		$trainers = [];
+
+		return View::make('admin.events.edit')
+            ->with('event', $event)
+            ->with('courses', $courses)
+			->with('trainers', $trainers);
 	}
 
 	/**
@@ -68,7 +117,26 @@ class EventsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$validator = Validator::make(Input::all(), \Models\Event::$rules);
+		$input = Input::all();
+
+    	if (!$validator->fails()) {
+    		$event = \Models\Event::find($id);
+    		$event->course_id = Input::get('course_id');
+    		$event->trainer_id = Input::get('trainer_id');
+    		$event->status = Input::get('status');
+    		$event->start_date = date('Y-m-d H:i:s', strtotime(Input::get('start_date')));
+    		$event->end_date = date('Y-m-d H:i:s', strtotime(Input::get('end_date')));
+    		
+			$event->save();
+
+    		return Redirect::route( 'admin.events.edit', $id )
+    			->withMessage( 'Data passed validation checks' );
+    	} else {
+    		return Redirect::route( 'admin.events.edit', $id )
+    			->withInput()
+    			->withErrors( $validator );	
+    	}
 	}
 
 	/**
@@ -80,7 +148,12 @@ class EventsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$event = \Models\Event::find($id);
+        $event->delete();
+
+        // redirect
+        \Session::flash('message', 'Successfully deleted the event!');
+        return Redirect::to('admin/events');
 	}
 
 }
