@@ -24,7 +24,7 @@
 
                 <div class="navbar-collapse collapse navbar-responsive-collapse">
                     <ul class="nav navbar-nav menu">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div><!--end of .navbar-collapse-->

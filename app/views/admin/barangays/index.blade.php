@@ -57,7 +57,6 @@
                     <td>{{{ $barangay->updated_at }}}</td>
                     <td>
                         <a class="btn btn-small btn-success" href="{{ URL::to('admin/barangays/' . $barangay->id) }}">show</a>
-                        |
                         <a class="btn btn-small btn-info" href="{{ URL::to('admin/barangays/' . $barangay->id . '/edit') }}">edit</a>
 
                         {{ Form::open(array('url' => 'admin/barangays/' . $barangay->id, 'class' => 'pull-right')) }}
