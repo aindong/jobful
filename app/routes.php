@@ -25,6 +25,12 @@ Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function
     Route::resource('courses', 'CoursesController');
 });
 
+// Login routes
+Route::group(['namespace' => 'Controllers\Admin'], function() {
+	Route::get('/login', ['as' => 'user.login', 'uses' => 'SessionController@login']);
+	Route::post('/login', ['as' => 'user.dologin', 'uses' => 'SessionController@doLogin']);
+});
+
 /**
  * Front routes
  */
