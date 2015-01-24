@@ -1,4 +1,14 @@
-<?php
+<?php namespace Controllers\Admin;
+
+use View;
+use BarangayChairman;
+use Barangay;
+use Redirect;
+use Validator;
+use Input;
+use Response;
+Use \Sentry;
+use Session;
 
 class BarangayChairmenController extends \BaseController {
 
@@ -11,7 +21,7 @@ class BarangayChairmenController extends \BaseController {
 	{
 		$barangaychairmen = Barangaychairman::all();
 
-		return View::make('barangaychairmen.index', compact('barangaychairmen'));
+		return View::make('admin.barangaychairmen.index', compact('barangaychairmen'));
 	}
 
 	/**
@@ -21,7 +31,15 @@ class BarangayChairmenController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('barangaychairmen.create');
+		$barangays = Barangay::all();
+		$brgy = [];
+
+		foreach ($barangays as $barangay) {
+			$brgy[$barangay['id']] = $barangay['barangay'];
+		}
+
+		return View::make('admin.barangaychairmen.create')
+			->with('barangays', $brgy);
 	}
 
 	/**
@@ -38,9 +56,55 @@ class BarangayChairmenController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		Barangaychairman::create($data);
+		// Register a user
+		try
+		{
+			// Create the user
+			$user = Sentry::createUser(array(
+				'email'     => $data['email'],
+				'password'  => $data['password'],
+				'activated' => true,
+			));
 
-		return Redirect::route('barangaychairmen.index');
+			// Find the group using the group id
+			$adminGroup = Sentry::findGroupByName('kapitan');
+
+			// Assign the group to the user
+			$user->addGroup($adminGroup);
+
+			$data['user_id'] = $user->getId();
+			$data['status'] = 'active';
+
+			unset($data['email']);
+			unset($data['password']);
+
+			Barangaychairman::create($data);
+
+			\Session::flash('success', 'Successfully created a new barangay chairman');
+
+			return Redirect::route('admin.barangaychairmen.index');
+		}
+		catch (\Cartalyst\Sentry\Users\LoginRequiredException $e)
+		{
+			Session::flash('error', 'Login field is required.');
+			return Redirect::back()->withInput();
+		}
+		catch (\Cartalyst\Sentry\Users\PasswordRequiredException $e)
+		{
+			Session::flash('error', 'Password field is required.');
+			return Redirect::back()->withInput();
+		}
+		catch (\Cartalyst\Sentry\Users\UserExistsException $e)
+		{
+			Session::flash('error', 'User with this login already exists.');
+			return Redirect::back()->withInput();
+		}
+		catch (\Cartalyst\Sentry\Groups\GroupNotFoundException $e)
+		{
+			Session::flash('error', 'Group was not found.');
+			return Redirect::back()->withInput();
+		}
+
 	}
 
 	/**
@@ -53,7 +117,7 @@ class BarangayChairmenController extends \BaseController {
 	{
 		$barangaychairman = Barangaychairman::findOrFail($id);
 
-		return View::make('barangaychairmen.show', compact('barangaychairman'));
+		return View::make('admin.barangaychairmen.show', compact('barangaychairman'));
 	}
 
 	/**
@@ -66,7 +130,7 @@ class BarangayChairmenController extends \BaseController {
 	{
 		$barangaychairman = Barangaychairman::find($id);
 
-		return View::make('barangaychairmen.edit', compact('barangaychairman'));
+		return View::make('admin.barangaychairmen.edit', compact('barangaychairman'));
 	}
 
 	/**
@@ -88,7 +152,7 @@ class BarangayChairmenController extends \BaseController {
 
 		$barangaychairman->update($data);
 
-		return Redirect::route('barangaychairmen.index');
+		return Redirect::route('admin.barangaychairmen.index');
 	}
 
 	/**
@@ -101,7 +165,7 @@ class BarangayChairmenController extends \BaseController {
 	{
 		Barangaychairman::destroy($id);
 
-		return Redirect::route('barangaychairmen.index');
+		return Redirect::route('admin.barangaychairmen.index');
 	}
 
 }

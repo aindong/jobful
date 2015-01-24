@@ -21,6 +21,7 @@
             <th>Administrative Level 1</th>
             <th>Administrative Level 2</th>
             <th>Country</th>
+            <th>Email</th>
             <th>Created</th>
             <th>Updated</th>
             <th>Actions</th>
@@ -36,6 +37,7 @@
             <th>Administrative Level 1</th>
             <th>Administrative Level 2</th>
             <th>Country</th>
+            <th>Email</th>
             <th>Created</th>
             <th>Updated</th>
             <th>Actions</th>
@@ -50,6 +52,7 @@
                     <td>{{{ $trainer->administrative_level1 }}}</td>
                     <td>{{{ $trainer->administrative_level2 }}}</td>
                     <td>{{{ $trainer->country }}}</td>
+                    <td>{{{ $trainer->user->email }}}</td>
                     <td>{{{ $trainer->created_at }}}</td>
                     <td>{{{ $trainer->updated_at }}}</td>
                     <td>

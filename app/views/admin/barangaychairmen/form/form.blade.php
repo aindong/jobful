@@ -31,14 +31,8 @@
 
 <div class="form-group">
     {{ Form::label('barangay_id', 'Barangay *', ['class' => 'form-label']) }}
-    {{ Form::select('barangay_id', array(
-        'single'        => 'Single', 
-        'married'       => 'Married',
-        'widowed'       => 'Widow',
-        'separated'     => 'Separated',
-        'divorced'      => 'Divorced'), 
-        null, ['class' => 'form-control', 'required' => 'required']) }}
+    {{ Form::select('barangay_id', $barangays, null, ['class' => 'form-control', 'required' => 'required']) }}
 </div>
 
-<a href="/admin/organizations" class="btn btn-default">Back</a>
+<a href="/admin/barangaychairmen" class="btn btn-default">Back</a>
 <button type="submit" class="btn btn-default">Submit</button>

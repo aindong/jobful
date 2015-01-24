@@ -22,7 +22,7 @@ Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function
 	Route::resource('organizations', 'EmployersController');
 	Route::resource('trainers', 'TrainersController');
 	Route::resource('trainees', 'TraineesController');
-	Route::resource('barangay_chairmen', 'BarangayChairmenController');
+	Route::resource('barangaychairmen', 'BarangayChairmenController');
 
     Route::resource('courses', 'CoursesController');
 });
