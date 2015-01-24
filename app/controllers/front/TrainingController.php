@@ -56,9 +56,13 @@ class TrainingController extends \BaseController {
                 $data->courses()->save($course_obj);
             }
 
+            \Session::flash('success', 'Your request has been submitted. Please wait for one of us to contact you.');
+
     		return Redirect::to( 'training/request' )
     			->withMessage( 'Data passed validation checks' );
     	} else {
+
+            \Session::flash('error', 'You have an error. Please review your data.');
     		return Redirect::to( 'training/request' )
     			->withInput()
     			->withErrors( $validator );	
