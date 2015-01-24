@@ -29,11 +29,19 @@
     
     <div class="form-group @if ($errors->has('title')) has-error @endif">
         {{ Form::label( 'courses', 'Courses (Please Check)' ) }}
-        {{ Form::text( 'title', Input::old('title'), array(
-            'id' => 'title',
-            'placeholder' => 'Title',
-            'class' => 'form-control',
-        ) ) }}
+        <?php foreach ($courses as $course): ?>
+        <?php 
+        $isChecked = false;
+        if (Input::old()) {
+            $isChecked = Input::old('course.' . $course->id, false);
+        }
+        ?>
+        <div class="form-control" >
+        {{ Form::checkbox( 'course[' . $course->id . ']', $course->id, $isChecked, array(
+            'id' => 'course-' . $course->id,
+        ) ) . ' ' . $course->title }}
+        </div>
+        <?php endforeach; ?>
         @if ($errors->has('title')) <p class="help-block">{{ $errors->first('title') }}</p> @endif
     </div>
 
