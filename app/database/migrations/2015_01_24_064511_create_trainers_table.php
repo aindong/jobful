@@ -24,6 +24,7 @@ class CreateTrainersTable extends Migration {
 			$table->string('administrative_level1');
 			$table->string('administrative_level2');
 			$table->string('country');
+			$table->integer('user_id');
 			$table->timestamps();
 		});
 	}
