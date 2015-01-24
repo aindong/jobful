@@ -194,7 +194,7 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
 
 		'Sentry' 			=> 'Cartalyst\Sentry\Facades\Laravel\Sentry',
-		'Debugbar' => 'Barryvdh\Debugbar\Facade',
+		'Debugbar' 			=> 'Barryvdh\Debugbar\Facade',
 	),
 
 );

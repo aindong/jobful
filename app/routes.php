@@ -29,6 +29,7 @@ Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function
 Route::group(['namespace' => 'Controllers\Admin'], function() {
 	Route::get('/login', ['as' => 'user.login', 'uses' => 'SessionController@login']);
 	Route::post('/login', ['as' => 'user.dologin', 'uses' => 'SessionController@doLogin']);
+	Route::get('/createAdmin', ['uses' => 'SessionController@registerAdmin']);
 });
 
 /**
