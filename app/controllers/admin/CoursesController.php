@@ -3,7 +3,7 @@
 use View;
 use Response;
 use Validator;
-use Barangay;
+use Course;
 use Input;
 use Redirect;
 
@@ -30,6 +30,7 @@ class CoursesController extends \BaseController {
 	public function create()
 	{
 		//
+		return View::make('admin.courses.create');
 	}
 
 	/**
@@ -40,7 +41,18 @@ class CoursesController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$validator = Validator::make(Input::all(), \Course::$rules);
+
+    	if (!$validator->fails()) {
+    		\Course::create( Input::all() );
+
+    		return Redirect::route( 'admin.courses.create' )
+    			->withMessage( 'Data passed validation checks' );
+    	} else {
+    		return Redirect::route( 'admin.courses.create' )
+    			->withInput()
+    			->withErrors( $validator );	
+    	}
 	}
 
 	/**
@@ -53,6 +65,7 @@ class CoursesController extends \BaseController {
 	public function show($id)
 	{
 		//
+		return View::make('admin.courses.show');
 	}
 
 	/**
@@ -65,6 +78,7 @@ class CoursesController extends \BaseController {
 	public function edit($id)
 	{
 		//
+		return View::make('admin.courses.edit');
 	}
 
 	/**
