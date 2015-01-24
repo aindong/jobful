@@ -13,7 +13,7 @@
 <aside class="col-md-2">
     <ul>
         <div style="margin: 20px 0px">
-            <a href="{{{ URL::to('/admin') }}}"><img src="/img/logo.png" alt="" width="150"/></a>
+            <a href="{{{ URL::to('/kapitan') }}}"><img src="/img/logo.png" alt="" width="150"/></a>
         </div>
 
         <li><a href="/kapitan/requests">Training Requests</a></li>
