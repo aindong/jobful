@@ -1,17 +1,18 @@
 'use strict';
 
-var Trainers = (function($) {
+var Trainees = (function($) {
 
     /*
      * Variables
      ------------------------------------------*/
-    var trainerFormCreate = $('#trainerFormCreate'),
+    var traineeFormCreate = $('#traineesFormCreate'),
+        traineeFormUpdate = $('#traineeFormUpdate'),
         alertDiv          = $('#alertDiv');
 
     /**
      * Declare the class object
      */
-    var trainers = {};
+    var trainees = {};
 
     /*
      * Public Functions
@@ -19,7 +20,7 @@ var Trainers = (function($) {
     /**
      * Create new trainee
      */
-    trainers.create = function(data) {
+    trainees.create = function(data) {
         var url = '';
 
         $.ajax({
@@ -38,7 +39,7 @@ var Trainers = (function($) {
     /**
      * Update an existing trainee
      */
-    trainers.update = function(data, id) {
+    trainees.update = function(data, id) {
         var url = '';
 
         $.ajax({
@@ -57,7 +58,7 @@ var Trainers = (function($) {
     /**
      * Delete a trainee
      */
-    trainers.delete = function(id) {
+    trainees.delete = function(id) {
         var url = '';
 
         $.ajax({
@@ -76,7 +77,7 @@ var Trainers = (function($) {
     /**
      * Get All Trainee
      */
-    trainers.getAll = function(data) {
+    trainees.getAll = function(data) {
         var url = '';
 
         $.ajax({
@@ -92,7 +93,7 @@ var Trainers = (function($) {
         });
     };
 
-    trainer.showError = function(message) {
+    trainees.showError = function(message) {
         alertDiv
             .removeClass('alert-success')
             .addClass('alert-danger')
@@ -100,7 +101,7 @@ var Trainers = (function($) {
             .show();
     };
 
-    trainer.showSuccess = function(message) {
+    trainees.showSuccess = function(message) {
         alertDiv
             .removeClass('alert-danger')
             .addClass('alert-success')
@@ -112,9 +113,9 @@ var Trainers = (function($) {
      * Private functions
      ------------------------------------------*/
 
-    trainerFormCreate.on('submit', function() {
+    traineeFormCreate.on('submit', function() {
         var data = $(this).serialize();
-        trainers.create(data);
+        trainees.create(data);
     });
 
     return trainers;
