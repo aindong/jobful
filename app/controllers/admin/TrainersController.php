@@ -1,5 +1,12 @@
 <?php namespace Controllers\Admin;
 
+use View;
+use Trainer;
+use Redirect;
+use Validator;
+use Input;
+use Response;
+
 class TrainersController extends \BaseController {
 
 	/**
@@ -11,7 +18,7 @@ class TrainersController extends \BaseController {
 	{
 		$trainers = Trainer::all();
 
-		return View::make('trainers.index', compact('trainers'));
+		return View::make('admin.trainers.index', compact('trainers'));
 	}
 
 	/**
@@ -21,7 +28,7 @@ class TrainersController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('trainers.create');
+		return View::make('admin.trainers.create');
 	}
 
 	/**
@@ -40,7 +47,7 @@ class TrainersController extends \BaseController {
 
 		Trainer::create($data);
 
-		return Redirect::route('trainers.index');
+		return Redirect::route('admin.trainers.index');
 	}
 
 	/**
@@ -53,7 +60,7 @@ class TrainersController extends \BaseController {
 	{
 		$trainer = Trainer::findOrFail($id);
 
-		return View::make('trainers.show', compact('trainer'));
+		return View::make('admin.trainers.show', compact('trainer'));
 	}
 
 	/**
@@ -66,7 +73,7 @@ class TrainersController extends \BaseController {
 	{
 		$trainer = Trainer::find($id);
 
-		return View::make('trainers.edit', compact('trainer'));
+		return View::make('admin.trainers.edit', compact('trainer'));
 	}
 
 	/**
@@ -88,7 +95,7 @@ class TrainersController extends \BaseController {
 
 		$trainer->update($data);
 
-		return Redirect::route('trainers.index');
+		return Redirect::route('admin.trainers.index');
 	}
 
 	/**
@@ -101,7 +108,7 @@ class TrainersController extends \BaseController {
 	{
 		Trainer::destroy($id);
 
-		return Redirect::route('trainers.index');
+		return Redirect::route('admin.trainers.index');
 	}
 
 }
