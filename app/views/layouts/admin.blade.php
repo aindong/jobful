@@ -10,39 +10,35 @@
     <link rel="stylesheet" href="/css/back.css">
 </head>
 <body>
-    <header>
-
-    </header>
-
-    <div class="row">
-        <div class="col-md-2" style="">
-            <aside>
-                <ul>
-                    <div style="margin: 20px 0px">
-                        <img src="/img/logo.png" alt="" width="150"/>
-                    </div>
-
-                    <li><a href="/admin/trainers">Trainers</a></li>
-                    <li><a href="/admin/trainees">Trainees</a></li>
-                    <li><a href="/admin/courses">Courses</a></li>
-                    <li><a href="/admin/requests">Training Requests</a></li>
-                    <li><a href="/admin/events">Events</a></li>
-                    <li><a href="/admin/barangays">Barangays</a></li>
-                    <li><a href="/admin/barangaychairmen">Barangay Chairman</a></li>
-                    <li><a href="/admin/organizations">Organizations</a></li>
-                    <li><a href="/admin/users">Users</a></li>
-                </ul>
-            </aside>
-        </div>
-
-        <div class="col-md-10">
-            <div class="top-menu pull-right">
-                <a href="#"><i class="glyphicon glyphicon-user"></i>My Account</a>
-                <a href="#"><i class="glyphicon glyphicon-lock"></i>Logout</a>
+    <aside>
+        <ul>
+            <div style="margin: 20px 0px">
+                <a href="{{{ URL::to('/admin') }}}"><img src="/img/logo.png" alt="" width="150"/></a>
             </div>
-            @yield('content')
-        </div>
-    </div>
+
+            <li><a href="/admin/trainers">Trainers</a></li>
+            <li><a href="/admin/trainees">Trainees</a></li>
+            <li><a href="/admin/courses">Courses</a></li>
+            <li><a href="/admin/requests">Training Requests</a></li>
+            <li><a href="/admin/events">Events</a></li>
+            <li><a href="/admin/barangays">Barangays</a></li>
+            <li><a href="/admin/barangaychairmen">Barangay Chairman</a></li>
+            <li><a href="/admin/organizations">Organizations</a></li>
+            <li><a href="/admin/users">Users</a></li>
+        </ul>
+    </aside>
+
+    <nav class="navs">
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav menu pull-right">
+                <li><a href="{{{ URL::to('/') }}}"><i class="glyphicon glyphicon-info"></i>Back to Home</a></li>
+                <li><a href="{{{ URL::to('/admin') }}}">My Account</a></li>
+                <li><a href="{{{ URL::to('/logout') }}}">Logout</a></li>
+            </ul>
+        </div><!--end of .navbar-collapse-->
+    </nav>
+
+    @yield('content')
 
     <footer>
 
