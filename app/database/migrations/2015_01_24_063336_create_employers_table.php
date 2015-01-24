@@ -17,8 +17,8 @@ class CreateEmployersTable extends Migration {
 			$table->increments('id');
 			$table->string('title');
 			$table->mediumText('description');
-			$table->int('status');
-			$table->int('user_id');
+			$table->integer('status');
+			$table->integer('user_id');
 			$table->timestamps();
 		});
 	}
