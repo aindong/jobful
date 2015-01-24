@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/back.css">
 </head>
 <body>
-    <aside>
+    <aside class="col-md-2">
         <ul>
             <div style="margin: 20px 0px">
                 <a href="{{{ URL::to('/admin') }}}"><img src="/img/logo.png" alt="" width="150"/></a>
@@ -28,7 +28,7 @@
         </ul>
     </aside>
 
-    <nav class="navs">
+    <nav class="navs col-md-10">
         <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav menu pull-right">
                 <li><a href="{{{ URL::to('/') }}}"><i class="glyphicon glyphicon-info"></i>Back to Home</a></li>
@@ -38,7 +38,15 @@
         </div><!--end of .navbar-collapse-->
     </nav>
 
-    @yield('content')
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            @yield('content')        
+        </div>
+    </div>
+    </div>
+    
 
     <footer>
 

@@ -48,11 +48,10 @@
                 <p><small>Copyright © 2015, Training and Placement NetworkProgram</small></p>
             </div>
             <div class="social col-xs-6">
-                
                 <ul class="social-nets">
                     <li><a href="#"><i class="fa fa-facebook-square fa-2x"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
-                    <li><a href="#"><i class="fa fa-instagram "></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram  fa-2x"></i></a></li>
                 </ul>
             </div>
         </div><!--end of .row-->

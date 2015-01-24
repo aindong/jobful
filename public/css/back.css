@@ -45,10 +45,10 @@ table {
 }
 
 .navs {
-    padding: 0px;
+    padding: 10px;
 }
 .navs a {
-    color: #fff;
+    /*color: #fff;*/
     padding: 5px 10px;
 }
 
@@ -58,7 +58,7 @@ table {
 }
 
 .navs {
-    background: #1d3193;
+    /*background: #1d3193;*/
     border-radius: 0;
     border: none;
     margin: 0;
