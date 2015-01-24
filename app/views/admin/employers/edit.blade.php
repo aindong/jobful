@@ -10,13 +10,4 @@
 
     @include('admin.employers.form.form')
     {{ Form::close() }}
-    <script type="text/javascript">
-	$(function() {
-		$('#dp5').datepicker()
-	});
-	</script>
-@stop
-
-@section('page-script')
-	
 @stop
