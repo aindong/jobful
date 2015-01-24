@@ -63,7 +63,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand logo" href="#"><img src="/img/logo.jpg" alt="TPNP JobPortal"></a>
+                        <a class="navbar-brand logo" href="#"><img src="/img/logo.png" alt="TPNP JobPortal"></a>
                     </div><!--end of .navbar-header-->
                 </div><!--end of .row-->
             </div><!--end of .container-->
