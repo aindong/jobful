@@ -15,6 +15,23 @@ class CreateTraineesTable extends Migration {
 		Schema::create('trainees', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->string('lname');
+			$table->string('fname');
+			$table->string('mname');
+			$table->string('address1');
+			$table->string('address2');
+			$table->string('locality');
+			$table->string('administrative_level1');
+			$table->string('administrative_level2');
+			$table->string('country');
+			$table->string('civil_status');
+			$table->string('gender');
+			$table->int('age');
+			$table->timestamps('bday');
+			$table->string('attainment');
+			$table->string('occupation');
+			$table->string('email');
+			$table->int('user_id');
 			$table->timestamps();
 		});
 	}
