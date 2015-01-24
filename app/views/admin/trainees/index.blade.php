@@ -71,7 +71,7 @@
                     <td>{{{ $trainee->bday }}}</td>
                     <td>{{{ $trainee->attainment }}}</td>
                     <td>{{{ $trainee->occupation }}}</td>
-                    <td>{{{ $trainee->email }}}</td>
+                    <td>{{{ $trainee->user->email }}}</td>
                     <td>{{{ $trainee->created_at }}}</td>
                     <td>{{{ $trainee->updated_at }}}</td>
                     <td>Add | Delete</td>
