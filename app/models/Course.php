@@ -11,4 +11,5 @@ class Course extends \Eloquent {
         // 'type'              => 'required'           // required and has to match the password field
     );
 
+	protected $guarded = [];
 }

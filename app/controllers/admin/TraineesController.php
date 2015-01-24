@@ -11,7 +11,7 @@ class TraineesController extends \BaseController {
 	{
 		$trainees = Trainee::all();
 
-		return View::make('trainees.index', compact('trainees'));
+		return View::make('admin.trainees.index', compact('trainees'));
 	}
 
 	/**
@@ -21,7 +21,7 @@ class TraineesController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('trainees.create');
+		return View::make('admin.trainees.create');
 	}
 
 	/**
@@ -40,7 +40,7 @@ class TraineesController extends \BaseController {
 
 		Trainee::create($data);
 
-		return Redirect::route('trainees.index');
+		return Redirect::route('admin.trainees.index');
 	}
 
 	/**
@@ -53,7 +53,7 @@ class TraineesController extends \BaseController {
 	{
 		$trainee = Trainee::findOrFail($id);
 
-		return View::make('trainees.show', compact('trainee'));
+		return View::make('admin.trainees.show', compact('trainee'));
 	}
 
 	/**
@@ -66,7 +66,7 @@ class TraineesController extends \BaseController {
 	{
 		$trainee = Trainee::find($id);
 
-		return View::make('trainees.edit', compact('trainee'));
+		return View::make('admin.trainees.edit', compact('trainee'));
 	}
 
 	/**
@@ -88,7 +88,7 @@ class TraineesController extends \BaseController {
 
 		$trainee->update($data);
 
-		return Redirect::route('trainees.index');
+		return Redirect::route('admin.trainees.index');
 	}
 
 	/**
@@ -101,7 +101,7 @@ class TraineesController extends \BaseController {
 	{
 		Trainee::destroy($id);
 
-		return Redirect::route('trainees.index');
+		return Redirect::route('admin.trainees.index');
 	}
 
 }
