@@ -2,7 +2,7 @@
 
 @section('content')
     {{ Form::open([
-        'route' => 'admin.employers.store',
+        'route' => 'admin.organizations.store',
         'method' => 'post',
         'class' => 'form',
         'role' => 'form'
