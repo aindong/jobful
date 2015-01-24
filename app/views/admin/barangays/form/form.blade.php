@@ -44,4 +44,5 @@
     {{ Form::text('email2', null, ['class' => 'form-control', 'required' => 'required']) }}
 </div>
 
+<a href="/admin/barangays" class="btn btn-default">Back</a>
 <button type="submit" class="btn btn-default">Submit</button>

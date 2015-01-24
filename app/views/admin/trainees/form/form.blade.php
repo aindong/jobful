@@ -94,4 +94,6 @@
     {{ Form::text('occupation', null, ['class' => 'form-control', 'required' => 'required']) }}
 </div>
 
+
+<a href="/admin/trainees" class="btn btn-default">Back</a>
 <button type="submit" class="btn btn-default">Submit</button>
