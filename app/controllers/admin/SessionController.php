@@ -88,9 +88,11 @@ class SessionController extends \BaseController
         } else if ($user->inGroup(Sentry::findGroupByName('admin'))) {
             return Redirect::to('/admin');
         } else if ($user->inGroup(Sentry::findGroupByName('trainers'))) {
-            return Redirect::to('/trainers');
+            return Redirect::to('/trainer');
         } else if ($user->inGroup(Sentry::findGroupByName('trainee'))) {
             return Redirect::to('/trainee');
+        } else if ($user->inGroup(Sentry::findGroupByName('kapitan'))) {
+            return Redirect::to('/kapitan');
         }
     }
 
