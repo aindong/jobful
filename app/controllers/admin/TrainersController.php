@@ -65,6 +65,7 @@ class TrainersController extends \BaseController {
 
 			$data['user_id'] = $user->getId();
 
+			// Unset uneeded elements
 			unset($data['email']);
 			unset($data['password']);
 

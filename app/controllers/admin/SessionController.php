@@ -116,6 +116,10 @@ class SessionController extends \BaseController
                 'name'        => 'trainers'
             ));
 
+            $trainers = Sentry::createGroup(array(
+                'name'        => 'kapitan'
+            ));
+
             // Register a user
             try
             {
