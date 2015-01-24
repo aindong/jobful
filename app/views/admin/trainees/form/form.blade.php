@@ -44,7 +44,7 @@
 </div>
 
 <div class="form-group">
-    {{ Form::label('administrative_level2', 'Administrative Level 2' *, ['class' => 'form-label']) }}
+    {{ Form::label('administrative_level2', 'Administrative Level 2 *', ['class' => 'form-label']) }}
     {{ Form::text('administrative_level2', null, ['class' => 'form-control', 'required' => 'required']) }}
 </div>
 
