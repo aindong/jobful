@@ -46,9 +46,10 @@ class CoursesController extends \BaseController {
 		$validator = Validator::make(Input::all(), \Course::$rules);
 
     	if (!$validator->fails()) {
-    		\Course::create( Input::all() );
+    		$input = Input::all();
+    		$id = \Course::create($input);
 
-    		return Redirect::route( 'admin.courses.create' )
+    		return Redirect::route( 'admin.courses.edit', $id->id )
     			->withMessage( 'Data passed validation checks' );
     	} else {
     		return Redirect::route( 'admin.courses.create' )
@@ -98,7 +99,27 @@ class CoursesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$validator = Validator::make(Input::all(), \Course::$rules);
+		$input = Input::all();
+
+    	if (!$validator->fails()) {
+    		$course = \Course::find($id);
+    		$course->code = Input::get('code');
+    		$course->title = Input::get('title');
+    		$course->description = Input::get('description');
+    		$course->duration = Input::get('duration');
+    		$course->duration_metric = Input::get('duration_metric');
+    		$course->type = Input::get('type');
+
+			$course->save();
+
+    		return Redirect::route( 'admin.courses.edit', $id )
+    			->withMessage( 'Data passed validation checks' );
+    	} else {
+    		return Redirect::route( 'admin.courses.edit', $id )
+    			->withInput()
+    			->withErrors( $validator );	
+    	}
 	}
 
 	/**
@@ -114,8 +135,8 @@ class CoursesController extends \BaseController {
         $course->delete();
 
         // redirect
-        Session::flash('message', 'Successfully deleted the course!');
-        return Redirect::to('nerds');
+        \Session::flash('message', 'Successfully deleted the course!');
+        return Redirect::to('admin/courses');
 	}
 
 }

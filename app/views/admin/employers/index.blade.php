@@ -1,6 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+            <span>{{ Session::get('success') }}</span>
+        </div>
+    @endif
+
     <a href="/admin/employers/create" class="btn btn-primary">Create New Organization</a>
     <br/>
     <br/>
@@ -36,7 +42,11 @@
                     <td>{{{ $employer->status }}}</td>
                     <td>{{{ $employer->created_at }}}</td>
                     <td>{{{ $employer->updated_at }}}</td>
-                    <td>Add | Delete</td>
+                    <td>
+                        <a href="/admin/employers/{{{ $employer->id }}}/edit">Edit</a>
+                        |
+                        <a href="#" data-id="{{ $employer->id }}">Delete</a>
+                    </td>
                 </tr>
             @endforeach
         <tbody>
