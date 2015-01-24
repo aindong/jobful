@@ -1,5 +1,12 @@
 <?php namespace Controllers\Admin;
 
+use View;
+use Employer;
+use Redirect;
+use Validator;
+use Input;
+use Response;
+
 class EmployersController extends \BaseController {
 
 	/**

@@ -27,7 +27,7 @@ class CreateTraineesTable extends Migration {
 			$table->string('civil_status');
 			$table->string('gender');
 			$table->integer('age');
-			$table->timestamps('bday');
+			$table->timestamp('bday');
 			$table->string('attainment');
 			$table->string('occupation');
 			$table->string('email');
