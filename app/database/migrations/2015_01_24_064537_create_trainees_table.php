@@ -30,7 +30,6 @@ class CreateTraineesTable extends Migration {
 			$table->timestamp('bday');
 			$table->string('attainment');
 			$table->string('occupation');
-			$table->string('email');
 			$table->integer('user_id');
 			$table->timestamps();
 		});
