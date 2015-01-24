@@ -44,4 +44,23 @@ Route::group(['namespace' => 'Controllers\Front'], function() {
     Route::post('training/store', 'TrainingController@store');
 });
 
+/**
+ * Trainer routes
+ */
+Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainer'], function() {
+	Route::get('/', 'TrainerDashboardController@index');
+});
 
+/**
+ * Trainee routes
+ */
+Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainee'], function() {
+	Route::get('/', 'TraineeDashboardController@index');
+});
+
+/**
+ * Kapitan routes
+ */
+Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainer'], function() {
+	Route::get('/', 'KapitanDashboardController@index');
+});
