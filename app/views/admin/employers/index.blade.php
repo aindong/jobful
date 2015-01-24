@@ -44,9 +44,14 @@
                     <td>{{{ $employer->created_at }}}</td>
                     <td>{{{ $employer->updated_at }}}</td>
                     <td>
-                        <a href="/admin/organizations/{{{ $employer->id }}}/edit">Edit</a>
+                        <a class="btn btn-small btn-success" href="{{ URL::to('admin/organizations/' . $employer->id) }}">show</a>
                         |
-                        <a href="#" data-id="{{ $employer->id }}">Delete</a>
+                        <a class="btn btn-small btn-info" href="{{ URL::to('admin/organizations/' . $employer->id . '/edit') }}">edit</a>
+
+                        {{ Form::open(array('url' => 'admin/organizations/' . $employer->id, 'class' => 'pull-right')) }}
+                        {{ Form::hidden('_method', 'DELETE') }}
+                        {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
+                        {{ Form::close() }}
                     </td>
                 </tr>
             @endforeach

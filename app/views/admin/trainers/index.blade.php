@@ -57,9 +57,14 @@
                     <td>{{{ $trainer->created_at }}}</td>
                     <td>{{{ $trainer->updated_at }}}</td>
                     <td>
-                        <a href="/admin/trainers/{{{ $trainer->id }}}/edit">Edit</a>
+                        <a class="btn btn-small btn-success" href="{{ URL::to('admin/trainers/' . $trainer->id) }}">show</a>
                         |
-                        <a href="#" data-id="{{ $trainer->id }}">Delete</a>
+                        <a class="btn btn-small btn-info" href="{{ URL::to('admin/trainers/' . $trainer->id . '/edit') }}">edit</a>
+
+                        {{ Form::open(array('url' => 'admin/trainers/' . $trainer->id, 'class' => 'pull-right')) }}
+                        {{ Form::hidden('_method', 'DELETE') }}
+                        {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
+                        {{ Form::close() }}
                     </td>
                 </tr>
             @endforeach

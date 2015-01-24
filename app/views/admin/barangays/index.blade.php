@@ -55,8 +55,16 @@
                     <td>{{{ $barangay->email2 }}}</td>
                     <td>{{{ $barangay->created_at }}}</td>
                     <td>{{{ $barangay->updated_at }}}</td>
-                    <td>Add | Delete</td>
-                </tr>
+                    <td>
+                        <a class="btn btn-small btn-success" href="{{ URL::to('admin/barangays/' . $barangay->id) }}">show</a>
+                        |
+                        <a class="btn btn-small btn-info" href="{{ URL::to('admin/barangays/' . $barangay->id . '/edit') }}">edit</a>
+
+                        {{ Form::open(array('url' => 'admin/barangays/' . $barangay->id, 'class' => 'pull-right')) }}
+                        {{ Form::hidden('_method', 'DELETE') }}
+                        {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
+                        {{ Form::close() }}
+                    </td>
             @endforeach
             <tbody>
 

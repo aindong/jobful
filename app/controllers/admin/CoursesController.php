@@ -84,8 +84,6 @@ class CoursesController extends \BaseController {
 	{
 		$course = \Course::find($id);
 
-		\Debugbar::info($course);
-
 		return View::make('admin.courses.edit')
             ->with('course', $course);
 	}
