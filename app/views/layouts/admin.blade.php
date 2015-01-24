@@ -89,6 +89,24 @@
         </div>
     </div>
 
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <img src="/img/logo.png" alt="logo">
+                </div>
+                <div class="copyright col-xs-6">
+                    <p><small>Copyright © 2015, Training and Placement NetworkProgram</small></p>
+                    <ul class="social-nets">
+                        <li><a href="#"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram "></i></a></li>
+                    </ul>
+                </div>
+            </div><!--end of .row-->
+        </div><!--end of .container-->
+    </footer>
+
     <script type="text/javascript" src="/js/jquery/jquery.min.js"></script>
     <script type="text/javascript" href="/packages/bootstrap/3/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/packages/DataTables-1.10.4/media/js/jquery.dataTables.min.js"></script>

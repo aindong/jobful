@@ -19,21 +19,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand logo" href="#"><img src="/img/logo.jpg" alt="TPNP JobPortal"></a>
+                    <a class="navbar-brand logo" href="#"><img src="/img/logo.png" alt="TPNP JobPortal"></a>
                 </div><!--end of .navbar-header-->
 
                 <div class="navbar-collapse collapse navbar-responsive-collapse">
                     <ul class="nav navbar-nav menu">
-                        <li><a href="/">Home</a></li>
-                        {{--<li><a href="/training/request">Register</a></li>--}}
+                        <li><a href="#">Home</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
-                    <div class="search form-group">
-                        <div class="input-group">
-                            <input type="text" class="form-control">
-                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                        </div>
-                    </div>
                 </div><!--end of .navbar-collapse-->
             </div><!--end of .row-->
         </div><!--end of .container-->
@@ -41,6 +34,25 @@
 </header>
 
 @yield('content')
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <img src="/img/logo.png" alt="logo">
+            </div>
+            <div class="copyright col-xs-6">
+                <p><small>Copyright © 2015, Training and Placement NetworkProgram</small></p>
+                <ul class="social-nets">
+                    <li><a href="#"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram "></i></a></li>
+                </ul>
+            </div>
+        </div><!--end of .row-->
+    </div><!--end of .container-->
+</footer>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" href="/packages/bootstrap/3/js/bootstrap.min.js"></script>
 </body>

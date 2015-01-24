@@ -68,54 +68,30 @@
                 </div><!--end of .container-->
             </div><!--end of .training-courses-->
 
-            <hr class="line-seperator">
-
-            <div class="clearfix"></div>
-            <div class="employment-informations">
-                <div class="col-xs-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Job Seeker</h3>
-                        </div>
-                        <div class="panel-body">
-                            <ul class="list">
-                                <li><a href="#">Search Job</a></li>
-                                <li><a href="#">Post Resume</a></li>
-                                <li><a href="#">Job Alerts</a></li>
-                            </ul>
-                        </div>
-                    </div><!--end of .panel-->
-                </div>
-
-                <div class="col-xs-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Job Function</h3>
-                        </div>
-                        <div class="panel-body">
-                            <ul class="list">
-                                <li><a href="#">Search Job</a></li>
-                                <li><a href="#">Post Resume</a></li>
-                                <li><a href="#">Job Alerts</a></li>
-                            </ul>
-                        </div>
-                    </div><!--end of .panel-->
-                </div>
-
-                <div class="col-xs-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Employer</h3>
-                        </div>
-                        <div class="panel-body">
-                            <ul class="list">
-                                <li><a href="#">Post a job</a></li>
-                            </ul>
-                        </div>
-                    </div><!--end of .panel-->
-                </div>
-            </div><!--end of .employment-informations-->
-
         </div><!--end of .row-->
     </div><!--end of .container-->
+
+    <div class="request-training-tools">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-8">
+                    <h1>Request Training Tools</h1>
+                    <p>In turpis. In ac felis quis tortor malesuada pretium. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed aliquam ultrices mauris. Fusce egestas elit eget lorem.
+                        <br>
+                        Morbi nec metus. Etiam iaculis nunc ac metus. Cras non dolor. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. In turpis.</p>
+                </div>
+
+                <button class="pull-right col-xs-4" onclick="location-href='#'">Go to Request Tools</button>
+            </div><!--end of .row-->
+        </div><!--end of .container-->
+    </div><!--end of .request-training-tools-->
+
+    <div class="align-center">
+        <div class="container">
+            <div class="row">
+                <h2>Pellentesque habitant morbi tristique senectus</h2>
+                <p>Donec vitae sapien ut libero venenatis faucibus. Duis lobortis massa imperdiet quam. Donec mollis hendrerit risus. Fusce pharetra convallis urna. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Curabitur nisi. Nunc egestas, augue at pellentesque laoreet, felis eros vehicula leo, at malesuada velit leo quis pede. Vivamus laoreet. Fusce fermentum odio nec arcu. Donec vitae orci sed dolor rutrum auctor.</p>
+            </div><!--end of .row-->
+        </div><!--end of container-->
+    </div>
 @stop
