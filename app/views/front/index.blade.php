@@ -11,12 +11,32 @@
                 </div><!--end of .tagline-->
 
                 <div class="login col-xs-4">
-                    <form action="">
-                        <input type="text" class="form-control" placeholder="Email Address">
-                        <input type="text" class="form-control" placeholder="Password">
-                        <p><small><a href="#">Forgot your password?</a></small></p>
-                        <a href="#" class="form-control btn button-submit">SUBMIT</a>
-                    </form>
+                    {{--<form action="">--}}
+                        {{--<input type="text" class="form-control" placeholder="Email Address">--}}
+                        {{--<input type="text" class="form-control" placeholder="Password">--}}
+                        {{--<p><small><a href="#">Forgot your password?</a></small></p>--}}
+                        {{--<a href="#" class="form-control btn button-submit">SUBMIT</a>--}}
+                    {{--</form>--}}
+
+                    @if(Session::has('error'))
+                        <div class="alert alert-danger">
+                            <span>{{ Session::get('error') }}</span>
+                        </div>
+                    @endif
+
+                    {{ Form::open(['route' => 'user.dologin', 'class' => 'form']) }}
+                    <div class="form-group">
+                        {{ Form::label('email', 'Email', ['class' => 'form-label']) }}
+                        {{ Form::email('email', null, ['class' => 'form-control', 'required' => 'required', 'placeholder' => 'Email Address', 'style' => 'color: #fff']) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ Form::label('password', 'Password', ['class' => 'form-label']) }}
+                        {{ Form::password('password', ['class' => 'form-control', 'required' => 'required', 'placeholder' => 'Password', 'style' => 'color: #fff']) }}
+                    </div>
+
+                    <button type="submit" class="form-control btn button-submit">Submit</button>
+                    {{ Form::close() }}
                 </div><!--end of .login-->
 
             </div><!--end of .row-->
@@ -34,33 +54,14 @@
                                 <h2 class="panel-title">Community based training program skills training to employment</h2>
                             </div><!--end of .panel-heading-->
                             <div class="panel-body">
-                                <div class="col-xs-6">
-                                    <ul class="list">
-                                        <li><a href="#">Small Engine (Yanmar, Kubato : 10 days)</a></li>
-                                        <li><a href="#">Cellphone Repair (10 days)</a></li>
-                                        <li><a href="#">Dressmaking / ISMO (10 days)</a></li>
-                                        <li><a href="#">Housekeeping (10 days)</a></li>
-                                        <li><a href="#">Catering (5 days)</a></li>
-                                        <li><a href="#">Massage Theraphy (10 days)</a></li>
-                                        <li><a href="#">Motorcycle Mechanics (10 days)</a></li>
-                                        <li><a href="#">Shielded Metal Arc Welding (10 days)</a></li>
-                                        <li><a href="#">Practical Electricity (8 days)</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-xs-6">
-                                    <ul class="list">
-                                        <li><a href="#">Haircut / Barbering (5 days)</a></li>
-                                        <li><a href="#">Facial Make - Up (7 days)</a></li>
-                                        <li><a href="#">Manicure / Pedicure (6 days)</a></li>
-                                        <li><a href="#">4 in 1 Training (Perfume , Making, Laundry Soap making, Dishwashig Soap Making, Fabric Conditioner Making ) (1 day)</a></li>
-                                        <li><a href="#">Veggie Noodle Making (3 days)</a></li>
-                                        <li><a href="#">Food Processing (6 days)</a></li>
-                                        <li><a href="#">Commercial Cooking (6 days)</a></li>
-                                        <li><a href="#">Meat Processing (5 days)</a></li>
-                                        <li><a href="#">CLASP (Finishing Course Call Center Training) (12 days)</a></li>
-                                    </ul>
-                                </div>
+                                <?php $i = 0; ?>
+                                @foreach($courses as $course)
+                                    <div class="col-xs-6">
+                                        <ul class="list">
+                                            <li><a href="#">{{{ $course->title }}}</a></li>
+                                        </ul>
+                                    </div>
+                                @endforeach
                             </div>
                         </div><!--end of .panel-->
                     </div><!--end of .row-->
