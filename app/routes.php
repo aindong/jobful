@@ -16,6 +16,7 @@
  */
 Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function() {
 	Route::get('/', 'AdminDashboardController@index');
+	Route::get('/calendar', 'AdminDashboardController@calendar');
 
 	Route::resource('barangays', 'BarangaysController');
 	Route::resource('organizations', 'EmployersController');
@@ -44,8 +45,8 @@ Route::group(['namespace' => 'Controllers\Admin'], function() {
 Route::group(['namespace' => 'Controllers\Front'], function() {
     Route::get('/', 'FrontDashboardController@index');
     
-    Route::get('training', 'TrainingController@index');
-    Route::get('training/request', 'TrainingController@request');
+    Route::get('training/{id}', 'TrainingController@show');
+    Route::get('training/{id}/request', 'TrainingController@request');
     Route::post('training/store', 'TrainingController@store');
 });
 
