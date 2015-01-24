@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <p>Admin dashboard index</p>
+    <div class="content">
+        Testing content
+    </div>
 @stop

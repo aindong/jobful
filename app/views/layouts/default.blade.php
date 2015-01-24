@@ -25,7 +25,7 @@
                 <div class="navbar-collapse collapse navbar-responsive-collapse">
                     <ul class="nav navbar-nav menu">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/training/request">Register</a></li>
+                        {{--<li><a href="/training/request">Register</a></li>--}}
                         <li><a href="#">Contact</a></li>
                     </ul>
                     <div class="search form-group">

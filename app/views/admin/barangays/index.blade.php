@@ -1,45 +1,46 @@
 @extends('layouts.admin')
 
 @section('content')
-<a href="/admin/barangays/create" class="btn btn-primary">Create New Barangay</a>
-    <br/>
-    <br/>
-    <table id="example" class="display table table-striped" cellspacing="0" width="100%">
-        <thead>
-        <tr>
-            <th></th>
-            <th>Barangay</th>
-            <th>Locality</th>
-            <th>District</th>
-            <th>Representative 1</th>
-            <th>Representative 2</th>
-            <th>Contact number 1</th>
-            <th>Contact number 2</th>
-            <th>Email 1</th>
-            <th>Email 2</th>
-            <th>Created</th>
-            <th>Updated</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
+    <div class="content">
+        <a href="/admin/barangays/create" class="btn btn-primary">Create New Barangay</a>
+        <br/>
+        <br/>
+        <table id="example" class="display table table-striped" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Barangay</th>
+                <th>Locality</th>
+                <th>District</th>
+                <th>Representative 1</th>
+                <th>Representative 2</th>
+                <th>Contact number 1</th>
+                <th>Contact number 2</th>
+                <th>Email 1</th>
+                <th>Email 2</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
 
-        <tfoot>
-        <tr>
-            <th></th>
-            <th>Barangay</th>
-            <th>Locality</th>
-            <th>District</th>
-            <th>Representative 1</th>
-            <th>Representative 2</th>
-            <th>Contact number 1</th>
-            <th>Contact number 2</th>
-            <th>Email 1</th>
-            <th>Email 2</th>
-            <th>Created</th>
-            <th>Updated</th>
-            <th>Actions</th>
-        </tr>
-        </tfoot>
+            <tfoot>
+            <tr>
+                <th></th>
+                <th>Barangay</th>
+                <th>Locality</th>
+                <th>District</th>
+                <th>Representative 1</th>
+                <th>Representative 2</th>
+                <th>Contact number 1</th>
+                <th>Contact number 2</th>
+                <th>Email 1</th>
+                <th>Email 2</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Actions</th>
+            </tr>
+            </tfoot>
             @foreach($barangays as $barangay)
                 <tr>
                     <td></td>
@@ -57,10 +58,11 @@
                     <td>Add | Delete</td>
                 </tr>
             @endforeach
-        <tbody>
+            <tbody>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 @stop
 
 @section('page-script')
