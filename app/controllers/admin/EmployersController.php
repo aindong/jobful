@@ -11,7 +11,7 @@ class EmployersController extends \BaseController {
 	{
 		$employers = Employer::all();
 
-		return View::make('employers.index', compact('employers'));
+		return View::make('admin.employers.index', compact('employers'));
 	}
 
 	/**
@@ -21,7 +21,7 @@ class EmployersController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('employers.create');
+		return View::make('admin.employers.create');
 	}
 
 	/**
@@ -40,7 +40,7 @@ class EmployersController extends \BaseController {
 
 		Employer::create($data);
 
-		return Redirect::route('employers.index');
+		return Redirect::route('admin.employers.index');
 	}
 
 	/**
@@ -53,7 +53,7 @@ class EmployersController extends \BaseController {
 	{
 		$employer = Employer::findOrFail($id);
 
-		return View::make('employers.show', compact('employer'));
+		return View::make('admin.employers.show', compact('employer'));
 	}
 
 	/**
@@ -66,7 +66,7 @@ class EmployersController extends \BaseController {
 	{
 		$employer = Employer::find($id);
 
-		return View::make('employers.edit', compact('employer'));
+		return View::make('admin.employers.edit', compact('employer'));
 	}
 
 	/**
@@ -88,7 +88,7 @@ class EmployersController extends \BaseController {
 
 		$employer->update($data);
 
-		return Redirect::route('employers.index');
+		return Redirect::route('admin.employers.index');
 	}
 
 	/**
@@ -101,7 +101,7 @@ class EmployersController extends \BaseController {
 	{
 		Employer::destroy($id);
 
-		return Redirect::route('employers.index');
+		return Redirect::route('admin.employers.index');
 	}
 
 }
