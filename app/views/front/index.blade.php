@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.front')
 
 @section('content')
     <div class="landing-page">

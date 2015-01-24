@@ -7,11 +7,11 @@
 {{-- Page content --}}
 @section('content')
 
-<div class="row request-training">
-    <div class="col-sm-8 col-sm-offset-2">
+<div class=" request-training">
+    <div class="col-sm-12">
 
         <div class="page-header">
-            <h1><span class="glyphicon glyphicon-flash"></span> Request Training</h1>
+            <h1><span class="glyphicon glyphicon-pencil"></span> Request Training</h1>
         </div>
 
 <!-- FORM STARTS HERE -->

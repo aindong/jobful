@@ -39,7 +39,23 @@
     </nav>
 </header>
 
-@yield('content')
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+        @if(Session::has('error'))
+            <div class="alert alert-danger">
+                <span>{{ Session::get('error') }}</span>
+            </div>
+        @endif
+        </div>
+
+
+        @yield('content')
+
+    </div>
+</div>
+
 
 <footer>
     <div class="container">

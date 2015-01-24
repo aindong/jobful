@@ -2,20 +2,12 @@
 
 @section('content')
 
-<div class="container-fluid">
-<div class="row">
 <div class="col-md-4"></div>
 <div class="col-md-4">
 
 <div class="page-header">
     <h1>Login</h1>
 </div>  
-
-@if(Session::has('error'))
-    <div class="alert alert-danger">
-        <span>{{ Session::get('error') }}</span>
-    </div>
-@endif
 
 {{ Form::open(['route' => 'user.dologin', 'class' => 'form']) }}
     <div class="form-group">
@@ -34,8 +26,6 @@
 
 </div>
 <div class="col-md-4"></div>
-</div>
-</div>
 
 
 @stop()
