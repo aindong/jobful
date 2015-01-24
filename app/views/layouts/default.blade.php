@@ -20,7 +20,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand logo" href="#"><img src="/img/logo.png" alt="TPNP JobPortal"></a>
+                        <a class="navbar-brand logo" href="{{{ URL::to('/') }}}"><img src="/img/logo.png" alt="TPNP JobPortal"></a>
                     </div><!--end of .navbar-header-->
                 </div>
 

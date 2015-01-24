@@ -1,33 +1,41 @@
-<html>
-<header>
+@extends('layouts.default')
 
-    <link rel="stylesheet" href="/packages/bootstrap/3/css/bootstrap.min.css"/>
-</header>
-<body>
+@section('content')
 
-<div class="content">
-    @if(Session::has('error'))
-        <div class="alert alert-danger">
-            <span>{{ Session::get('error') }}</span>
-        </div>
-    @endif
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-4"></div>
+<div class="col-md-4">
 
-    {{ Form::open(['route' => 'user.dologin', 'class' => 'form']) }}
-        <div class="form-group">
-            {{ Form::label('email', 'Email', ['class' => 'form-label']) }}
-            {{ Form::email('email', null, ['class' => 'form-control', 'required' => 'required']) }}
-        </div>
+<div class="page-header">
+    <h1>Login</h1>
+</div>  
 
-        <div class="form-group">
-            {{ Form::label('password', 'Password', ['class' => 'form-label']) }}
-            {{ Form::password('password', ['class' => 'form-control', 'required' => 'required']) }}
-        </div>
+@if(Session::has('error'))
+    <div class="alert alert-danger">
+        <span>{{ Session::get('error') }}</span>
+    </div>
+@endif
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    {{ Form::close() }}
+{{ Form::open(['route' => 'user.dologin', 'class' => 'form']) }}
+    <div class="form-group">
+        {{ Form::label('email', 'Email', ['class' => 'form-label']) }}
+        {{ Form::email('email', null, ['class' => 'form-control', 'required' => 'required']) }}
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('password', 'Password', ['class' => 'form-label']) }}
+        {{ Form::password('password', ['class' => 'form-control', 'required' => 'required']) }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+{{ Form::close() }}
+
+
+</div>
+<div class="col-md-4"></div>
+</div>
 </div>
 
-<script type="text/javascript" src="/js/jquery/jquery.min.js"></script>
-<script type="text/javascript" href="/packages/bootstrap/3/js/bootstrap.min.js"></script>
-</body>
-</html>
+
+@stop()
