@@ -18,7 +18,7 @@ class BarangaysController extends \BaseController {
 	{
 		$barangays = Barangay::all();
 
-		return View::make('barangays.index', compact('barangays'));
+		return View::make('admin.barangays.index', compact('barangays'));
 	}
 
 	/**
@@ -28,7 +28,7 @@ class BarangaysController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('barangays.create');
+		return View::make('admin.barangays.create');
 	}
 
 	/**
@@ -47,7 +47,7 @@ class BarangaysController extends \BaseController {
 
 		Barangay::create($data);
 
-		return Redirect::route('barangays.index');
+		return Redirect::route('admin.barangays.index');
 	}
 
 	/**
@@ -60,7 +60,7 @@ class BarangaysController extends \BaseController {
 	{
 		$barangay = Barangay::findOrFail($id);
 
-		return View::make('barangays.show', compact('barangay'));
+		return View::make('admin.barangays.show', compact('barangay'));
 	}
 
 	/**
@@ -73,7 +73,7 @@ class BarangaysController extends \BaseController {
 	{
 		$barangay = Barangay::find($id);
 
-		return View::make('barangays.edit', compact('barangay'));
+		return View::make('admin.barangays.edit', compact('barangay'));
 	}
 
 	/**
@@ -95,7 +95,7 @@ class BarangaysController extends \BaseController {
 
 		$barangay->update($data);
 
-		return Redirect::route('barangays.index');
+		return Redirect::route('admin.barangays.index');
 	}
 
 	/**
@@ -108,7 +108,7 @@ class BarangaysController extends \BaseController {
 	{
 		Barangay::destroy($id);
 
-		return Redirect::route('barangays.index');
+		return Redirect::route('admin.barangays.index');
 	}
 
 }
