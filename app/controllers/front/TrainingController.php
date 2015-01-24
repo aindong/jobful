@@ -4,6 +4,7 @@ use View;
 use Response;
 use Validator;
 use TrainingRequest;
+use TrainingRequestCourse;
 use Input;
 use Redirect;
 
@@ -28,7 +29,10 @@ class TrainingController extends \BaseController {
 	 */
 	public function request()
 	{
-		return View::make('front.training.request');
+        $courses = \Course::all();
+
+		return View::make('front.training.request')
+            ->with('courses', $courses);
 	}
 
 	/**
@@ -40,10 +44,17 @@ class TrainingController extends \BaseController {
 	public function store()
 	{
 		$validator = Validator::make(Input::all(), \TrainingRequest::$rules);
-
+        
     	if (!$validator->fails()) {
     		$input = Input::all();
-    		$id = \TrainingRequest::create($input);
+    		$data = \TrainingRequest::create($input);
+
+            foreach (Input::get('course') as $value) {
+                $course_obj = new \TrainingRequestCourse();
+                $course_obj->request_id = $data->id;
+                $course_obj->course_id = $value;
+                $data->courses()->save($course_obj);
+            }
 
     		return Redirect::to( 'training/request' )
     			->withMessage( 'Data passed validation checks' );

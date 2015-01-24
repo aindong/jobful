@@ -12,4 +12,8 @@ class TrainingRequest extends \Eloquent {
         'contact1' => 'required',
         'email' => 'email',
     );
+
+    public function courses() {
+        return $this->hasMany('TrainingRequestCourse', 'request_id');
+    }
 }
