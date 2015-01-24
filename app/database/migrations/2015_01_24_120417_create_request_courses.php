@@ -15,8 +15,8 @@ class CreateRequestCourses extends Migration {
 		Schema::create('request_courses', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('request_id');
-			$table->integer('course_id');
+			$table->integer('request_id')->references('id')->on('request');
+			$table->integer('course_id')->references('id')->on('course');
 			$table->timestamps();
 		});
 	}

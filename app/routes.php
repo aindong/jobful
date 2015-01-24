@@ -27,6 +27,8 @@ Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function
     Route::resource('courses', 'CoursesController');
 
     Route::get('users', 'UsersController@index');
+
+    Route::resource('requests', 'RequestsController', ['except' => ['store', 'create']]);
 });
 
 // Login routes
