@@ -1,5 +1,12 @@
 <?php namespace Controllers\Admin;
 
+use View;
+use Trainee;
+use Redirect;
+use Validator;
+use Input;
+use Response;
+
 class TraineesController extends \BaseController {
 
 	/**
