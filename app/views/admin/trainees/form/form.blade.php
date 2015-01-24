@@ -1,3 +1,9 @@
+@if(Session::has('error'))
+    <div class="alert alert-danger">
+        <span>{{ Session::get('error') }}</span>
+    </div>
+@endif
+
 <div class="form-group">
     {{ Form::label('email', 'Email Address *', ['class' => 'form-label']) }}
     {{ Form::text('email', null, ['class' => 'form-control', 'required' => 'required']) }}

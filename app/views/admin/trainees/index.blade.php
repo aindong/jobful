@@ -1,9 +1,17 @@
 @extends('layouts.admin')
 
 @section('content')
-<a href="/admin/trainees/create" class="btn btn-primary">Create New Trainee</a>
+
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+            <span>{{ Session::get('success') }}</span>
+        </div>
+    @endif
+    
+    <a href="/admin/trainees/create" class="btn btn-primary">Create New Trainee</a>
     <br/>
     <br/>
+
     <table id="example" class="display table table-striped" cellspacing="0" width="100%">
         <thead>
         <tr>
