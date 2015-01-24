@@ -15,6 +15,11 @@ header {
     z-index: 9;
 }
 
+.course-title,
+.request-training {
+    padding-top: 120px;
+}
+
 /*NAVIGATION*/
 .navs {
     background: #334fdb;
