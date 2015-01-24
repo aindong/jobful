@@ -7,7 +7,6 @@ use TrainingRequest;
 use Input;
 use Redirect;
 
-
 class RequestsController extends \BaseController {
 
 	/**
