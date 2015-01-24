@@ -22,14 +22,15 @@
                         <img src="/img/logo.png" alt="" width="150"/>
                     </div>
 
-                    <li><a href="/admin/barangays">Barangays</a></li>
-                    <li><a href="/admin/organizations">Organizations</a></li>
                     <li><a href="/admin/trainers">Trainers</a></li>
                     <li><a href="/admin/trainees">Trainees</a></li>
-                    <li><a href="/admin/barangaychairmen">Barangay Chairman</a></li>
                     <li><a href="/admin/courses">Courses</a></li>
-                    <li><a href="/admin/users">Users</a></li>
                     <li><a href="/admin/requests">Training Requests</a></li>
+                    <li><a href="/admin/events">Events</a></li>
+                    <li><a href="/admin/barangays">Barangays</a></li>
+                    <li><a href="/admin/barangaychairmen">Barangay Chairman</a></li>
+                    <li><a href="/admin/organizations">Organizations</a></li>
+                    <li><a href="/admin/users">Users</a></li>
                 </ul>
             </aside>
         </div>
