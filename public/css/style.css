@@ -59,7 +59,7 @@ header {
 }
 .login {
     background: rgba(255, 255, 255, 0.5);
-    height: 607px;
+    height: 450px;
     padding-top: 5em;
 }
 .login .form-control {
