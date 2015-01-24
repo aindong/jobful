@@ -1,5 +1,12 @@
 <?php namespace Controllers\Admin;
 
+use View;
+use Response;
+use Validator;
+use Barangay;
+use Input;
+use Redirect;
+
 class BarangaysController extends \BaseController {
 
 	/**

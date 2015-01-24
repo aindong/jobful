@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+/**
+ * Admin routes
+ */
+Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function() {
+	Route::resource('barangays', 'BarangaysController');
+	Route::resource('employers', 'EmployersController');
+	Route::resource('trainers', 'TrainersController');
+	Route::resource('trainees', 'TraineesController');
 });
-Route::resource('barangays', 'BarangaysController');
-Route::resource('employers', 'EmployersController');
-Route::resource('trainers', 'TrainersController');
-Route::resource('trainees', 'TraineesController');
