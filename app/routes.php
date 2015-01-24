@@ -24,6 +24,8 @@ Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function
 	Route::resource('barangaychairmen', 'BarangayChairmenController');
 
     Route::resource('courses', 'CoursesController');
+
+    Route::get('users', 'UsersController@index');
 });
 
 // Login routes
