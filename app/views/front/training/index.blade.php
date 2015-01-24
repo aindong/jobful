@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         
-        <h1>{{{ $course->title }}}  <a href="/training/request" class="btn btn-primary">Request for training</a></h1>
+        <h1 class="course-title">{{{ $course->title }}}  <a href="/training/request" class="btn btn-primary">Request for training</a></h1>
         <h3>Type: </h3>
             <p>{{{ $course->type }}}</p>
 
