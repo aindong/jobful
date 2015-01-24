@@ -1,0 +1,1 @@
+C:\Projects\jobful\app/views/barangays/index.blade.php

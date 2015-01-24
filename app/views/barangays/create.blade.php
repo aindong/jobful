@@ -1,0 +1,1 @@
+C:\Projects\jobful\app/views/barangays/create.blade.php

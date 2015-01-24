@@ -1,0 +1,1 @@
+C:\Projects\jobful\app/views/trainees/show.blade.php

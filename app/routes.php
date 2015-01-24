@@ -15,3 +15,7 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+Route::resource('barangays', 'BarangaysController');
+Route::resource('employers', 'EmployersController');
+Route::resource('trainers', 'TrainersController');
+Route::resource('trainees', 'TraineesController');
