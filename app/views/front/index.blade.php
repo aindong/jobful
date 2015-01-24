@@ -58,7 +58,7 @@
                                 @foreach($courses as $course)
                                     <div class="col-xs-6">
                                         <ul class="list">
-                                            <li><a href="/training/{{{ $course->id }}}">{{{ $course->title }}}</a></li>
+                                            <li><a href="/training/{{{ $course->id }}}/show">{{{ $course->title }}}</a></li>
                                         </ul>
                                     </div>
                                 @endforeach
@@ -69,33 +69,7 @@
             </div><!--end of .training-courses-->
 
             <hr class="line-seperator">
-            <div class="request-training-tools">
-                <h2>Request Training Tools</h2>
-                <div class="col-xs-6">
-                    <div class="">
-                        <label class="col-xs-3">Name : </label>
-                        <div class="col-xs-9"><input type="text" class="form-control"></div>
-                    </div>
 
-                    <div class="">
-                        <label class="col-xs-3">Email Address : </label>
-                        <div class="col-xs-9"><input type="email" class="form-control"></div>
-                    </div>
-
-                    <div class="">
-                        <label class="col-xs-3">Request : </label>
-                        <div class="col-xs-9">
-                            <select name="request" id="" class="form-control">
-                                <option value="" selected>--Select Request--</option>
-                                <option value="">Request One</option>
-                                <option value="">Request Two</option>
-                                <option value="">Request Three</option>
-                            </select>
-                            <button class="form-control btn" onclick="location.href='#'">SUBMIT</button>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end of .request-training-tools-->
             <div class="clearfix"></div>
             <div class="employment-informations">
                 <div class="col-xs-4">

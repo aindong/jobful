@@ -43,8 +43,8 @@ Route::group(['namespace' => 'Controllers\Admin'], function() {
 Route::group(['namespace' => 'Controllers\Front'], function() {
     Route::get('/', 'FrontDashboardController@index');
     
-    Route::get('training/{id}', 'TrainingController@show');
-    Route::get('training/{id}/request', 'TrainingController@request');
+    Route::get('training/{id}/show', 'TrainingController@show');
+    Route::get('training/request', 'TrainingController@request');
     Route::post('training/store', 'TrainingController@store');
 });
 
