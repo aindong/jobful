@@ -31,7 +31,6 @@
                     <td>{{{ $barangay->locality }}}</td>
                     <td>{{{ $barangay->district }}}</td>
                     <td>{{{ $barangay->barangay }}}</td>
-                    <td>{{{ $barangay->locality }}}</td>
                     <td>{{{ $barangay->created_at }}}</td>
                     <td>{{{ $barangay->updated_at }}}</td>
                     <td>Add | Delete</td>
