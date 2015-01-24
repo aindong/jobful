@@ -17,12 +17,11 @@
 {{-- Page content --}}
 @section('content')
 
-<div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-        
-        <div class="page-header">
-            <h1><span class="glyphicon glyphicon-flash"></span> Edit Course</h1>
-        </div>  
+<div class="page-header">
+    <a href="{{{ URL::to('/admin/courses') }}}" class="pull-right btn">Cancel</a>
+    <h1>Edit Course</h1>
+    <div class="clearfix"></div>
+</div>  
 
 <!-- FORM STARTS HERE -->
 {{ Form::model($course, array(
@@ -104,10 +103,5 @@
         ) ) }}
     </div>
 {{ Form::close() }}
-
-</form>
-
-</div>
-</div>
     
 @stop

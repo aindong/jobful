@@ -2,6 +2,12 @@
 
 @section('content')
 
+<div class="page-header">
+    <a href="{{{ URL::to('/users/create') }}}" class="pull-right btn btn-primary">New User</a>
+    <h1>Manage User</h1>
+    <div class="clearfix"></div>
+</div>  
+
     <div class="content">
         <table id="example" class="display table table-striped" cellspacing="0" width="100%">
             <thead>

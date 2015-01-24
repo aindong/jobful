@@ -5,6 +5,11 @@
 @stop
 
 @section('content')
+<div class="page-header">
+    <h1>Manage Requests</h1>
+    <div class="clearfix"></div>
+</div>  
+
     <table id="requests" class="display table table-striped" cellspacing="0" width="100%">
         <thead>
         <tr>

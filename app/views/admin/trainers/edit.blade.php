@@ -1,6 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
+
+<div class="page-header">
+    <a href="{{{ URL::to('/admin/trainers') }}}" class="pull-right btn">Cancel</a>
+    <h1>Edit Trainer</h1>
+    <div class="clearfix"></div>
+</div>  
+
+
     {{ Form::model($trainer, [
         'route' => 'admin.trainers.store',
         'method' => 'post',

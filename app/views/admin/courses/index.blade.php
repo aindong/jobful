@@ -1,10 +1,18 @@
 @extends('layouts.admin')
 
 @section('title')
-    New Courses
+    Manage Courses
 @stop
 
 @section('content')
+
+<div class="page-header">
+    <a href="{{{ URL::to('/admin/courses/create') }}}" class="pull-right btn btn-primary">New Course</a>
+    <h1>Manage Courses</h1>
+    <div class="clearfix"></div>
+</div>  
+
+
     <div class="content">
         <table id="courses" class="display table table-striped" cellspacing="0" width="100%">
             <thead>

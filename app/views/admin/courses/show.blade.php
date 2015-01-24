@@ -17,11 +17,11 @@
 {{-- Page content --}}
 @section('content')
 
-<h1>Showing {{ $course->title }}</h1>
-
-    <div class="jumbotron text-center">
-        <h2>{{ $course->title }}</h2>
-    </div>
+<div class="page-header">
+    <a href="{{{ URL::to('/admin/courses') }}}" class="pull-right btn">Cancel</a>
+    <h1>{{ $course->title }}</h1>
+    <div class="clearfix"></div>
+</div>  
     
     <a class="btn btn-small btn-info" href="{{ URL::to('admin/courses/' . $course->id . '/edit') }}">Edit this Course</a>
 

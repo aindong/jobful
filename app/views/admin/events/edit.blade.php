@@ -6,7 +6,9 @@
         
 @section('content')
 <div class="page-header">
-    <h1><span class="glyphicon glyphicon-flash"></span> Edit Event</h1>
+    <a href="{{{ URL::to('/admin/events') }}}" class="pull-right btn">Cancel</a>
+    <h1>Edit Event</h1>
+    <div class="clearfix"></div>
 </div>  
 
 <!-- FORM STARTS HERE -->

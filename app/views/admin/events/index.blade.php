@@ -5,6 +5,12 @@
 @stop
 
 @section('content')
+<div class="page-header">
+    <a href="{{{ URL::to('/admin/events/create') }}}" class="pull-right btn btn-primary">New Event</a>
+    <h1>Manage Events</h1>
+    <div class="clearfix"></div>
+</div>  
+
     <div class="content">
         <table id="events" class="display table table-striped" cellspacing="0" width="100%">
             <thead>

@@ -1,6 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
+<div class="page-header">
+    <a href="{{{ URL::to('/admin/organizations/create') }}}" class="pull-right btn btn-primary">New Organization</a>
+    <h1>Manage Organizations</h1>
+    <div class="clearfix"></div>
+</div>  
+
     <div class="content">
         @if(Session::has('success'))
             <div class="alert alert-success">
@@ -8,9 +14,6 @@
             </div>
         @endif
 
-        <a href="/admin/organizations/create" class="btn btn-primary">Create New Organization</a>
-        <br/>
-        <br/>
         <table id="example" class="display table table-striped" cellspacing="0" width="100%">
             <thead>
             <tr>

@@ -16,13 +16,11 @@
 
 {{-- Page content --}}
 @section('content')
-
-<div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-        
-        <div class="page-header">
-            <h1><span class="glyphicon glyphicon-flash"></span> Edit Request</h1>
-        </div>  
+<div class="page-header">
+    <a href="{{{ URL::to('/admin/requests') }}}" class="pull-right btn">Cancel</a>
+    <h1>Edit Course</h1>
+    <div class="clearfix"></div>
+</div>  
 
 <dl class="dl-horizontal">
     <dt>First Name</dt>
@@ -93,9 +91,4 @@
     </div>
 {{ Form::close() }}
 
-</form>
-
-</div>
-</div>
-    
 @stop
