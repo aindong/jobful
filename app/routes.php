@@ -16,6 +16,7 @@
  */
 Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function() {
 	Route::get('/', 'AdminDashboardController@index');
+	Route::get('/calendar', 'AdminDashboardController@calendar');
 
 	Route::resource('barangays', 'BarangaysController');
 	Route::resource('organizations', 'EmployersController');
