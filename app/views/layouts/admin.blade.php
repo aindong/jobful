@@ -34,7 +34,7 @@
         }
 
         aside ul li:hover {
-            border-left: 10px solid #B00E0E;
+            border-left: 10px solid #0F0B48;
         }
 
         aside ul li a:hover {
