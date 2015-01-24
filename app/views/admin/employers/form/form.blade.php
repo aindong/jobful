@@ -8,4 +8,5 @@
     {{ Form::textarea('description', null, ['class' => 'form-control', 'required' => 'required']) }}
 </div>
 
+<a href="/admin/employers" class="btn btn-default">Back</a>
 <button type="submit" class="btn btn-default">Submit</button>

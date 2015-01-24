@@ -36,7 +36,11 @@
                     <td>{{{ $employer->status }}}</td>
                     <td>{{{ $employer->created_at }}}</td>
                     <td>{{{ $employer->updated_at }}}</td>
-                    <td>Add | Delete</td>
+                    <td>
+                        <a href="/admin/employers/{{{ $employer->id }}}/edit">Edit</a>
+                        |
+                        <a href="#" data-id="{{ $employer->id }}">Delete</a>
+                    </td>
                 </tr>
             @endforeach
         <tbody>
