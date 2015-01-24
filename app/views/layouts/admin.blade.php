@@ -5,7 +5,7 @@
     @yield('page-style')
 </header>
 <body>
-    @yield('section')
+    @yield('content')
 
     <script type="text/javascript" src="/js/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/packages/DataTables-1.10.4/media/js/jquery.dataTables.min.js"></script>
