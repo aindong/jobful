@@ -1,0 +1,138 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #333;
+    line-height: 25px;
+    font-size: 16px;
+}
+a:hover {
+    color: #333;
+    text-decoration: none;
+}
+/*NAVIGATION*/
+.navs {
+    background: #334fdb;
+    border-radius: 0;
+    border-bottom: 7px solid #1d3193 !important;
+    border: none;
+    margin: 0;
+}
+.logo{
+    height: auto;
+    padding: 0;
+    background: #fff;
+}
+.navbar-nav {
+    margin: 1.3em 1em !important;
+}
+.menu li>a {
+    color: #fff !important;
+    font-family: inherit !important;
+    font-size: 25px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.input-group {
+    margin-top: 1.5em;
+}
+.input-group .form-control:first-child,
+.input-group-addon:last-child {
+    border: none;
+    border-radius: 0;
+}
+.input-group-addon:last-child {
+    background: #1D3193;
+    color: #fff;
+}
+/*LANDING PAGE*/
+.landing-page {
+    background: url('/img/bg.jpg')no-repeat;
+    height: 607px;
+    background-size: 100%;
+}
+.login {
+    background: rgba(255, 255, 255, 0.5);
+    height: 607px;
+    padding-top: 5em;
+}
+.login .form-control {
+    margin-bottom: 1em;
+}
+.login input {
+    background: rgba(0, 0, 0, 0.5);
+}
+.login a {
+    color: #1d3193;
+}
+.login .button-submit,
+.request-training-tools button {
+    background: #334fdb;
+    border-bottom: 5px solid #1d3193;
+    color: #fff;
+    font-size: 23px;
+    font-weight: 300;
+    height: auto;
+}
+.tagline {
+    margin-top: 4em;
+}
+.tagline h3, .tagline h1 {
+    color: #fff !important;
+    font-weight: 300;
+}
+.tagline h3 {
+    font-size: 54px;
+}
+.tagline h1 {
+    font-size: 78px;
+}
+
+/*TRAINING COURSES*/
+.panel {
+    border: 1px solid #334fdb;
+}
+.panel-heading {
+    background: #334fdb !important;
+}
+.training-courses, .employment-informations  {
+    margin-top: 5em;
+}
+.training-courses .panel-title {
+    font-size: 36px;
+    font-weight: 300;
+}
+.list {
+    list-style-type: none;
+}
+.list li:before {
+    content: '\f058' /*fontawesome char code inside the ''*/;
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-left: -1.2em;
+    width: 1.2em;
+    color: #1d3193;
+}
+.list li a {
+    color: #1d3193;
+}
+.list li a:hover {
+    color: #333;
+    font-weight: 700;
+}
+/*CONTENT*/
+.line-seperator {
+    border: 5px solid #eaeaea;
+}
+.request-training-tools .col-xs-6 {
+    margin: auto;
+    float: none;
+}
+.request-training-tools  input,
+.request-training-tools  select {
+    border: 1px solid #acacac;
+    border-radius: 0;
+    margin-bottom: 1em;
+    -webkit-box-shadow: none;
+}
+.request-training-tools button {
+    border-radius: 0;
+}
