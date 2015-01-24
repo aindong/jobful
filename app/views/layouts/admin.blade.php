@@ -15,19 +15,24 @@
     </header>
 
     <div class="row">
-        <aside class="col-md-2">
-            <ul>
-                <li><a href="/admin/trainers">Trainers</a></li>
-                <li><a href="/admin/trainees">Trainees</a></li>
-                <li><a href="/admin/courses">Courses</a></li>
-                <li><a href="/admin/requests">Training Requests</a></li>
-                <li><a href="/admin/events">Events</a></li>
-                <li><a href="/admin/barangays">Barangays</a></li>
-                <li><a href="/admin/barangaychairmen">Barangay Chairman</a></li>
-                <li><a href="/admin/organizations">Organizations</a></li>
-                <li><a href="/admin/users">Users</a></li>
-            </ul>
-        </aside>
+        <div class="col-md-2" style="">
+            <aside>
+                <ul>
+                    <div style="margin: 20px 0px">
+                        <img src="/img/logo.png" alt="" width="150"/>
+                    </div>
+
+                    <li><a href="/admin/barangays">Barangays</a></li>
+                    <li><a href="/admin/organizations">Organizations</a></li>
+                    <li><a href="/admin/trainers">Trainers</a></li>
+                    <li><a href="/admin/trainees">Trainees</a></li>
+                    <li><a href="/admin/barangaychairmen">Barangay Chairman</a></li>
+                    <li><a href="/admin/courses">Courses</a></li>
+                    <li><a href="/admin/users">Users</a></li>
+                    <li><a href="/admin/requests">Training Requests</a></li>
+                </ul>
+            </aside>
+        </div>
 
         <div class="col-md-10">
             <div class="top-menu pull-right">
