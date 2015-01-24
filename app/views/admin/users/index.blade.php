@@ -2,26 +2,27 @@
 
 @section('content')
 
-    <table id="example" class="display table table-striped" cellspacing="0" width="100%">
-        <thead>
-        <tr>
-            <th></th>
-            <th>Email</th>
-            <th>Password</th>
-            <th>Created</th>
-            <th>Updated</th>
-        </tr>
-        </thead>
+    <div class="content">
+        <table id="example" class="display table table-striped" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Created</th>
+                <th>Updated</th>
+            </tr>
+            </thead>
 
-        <tfoot>
-        <tr>
-            <th></th>
-            <th>Email</th>
-            <th>Password</th>
-            <th>Created</th>
-            <th>Updated</th>
-        </tr>
-        </tfoot>
+            <tfoot>
+            <tr>
+                <th></th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Created</th>
+                <th>Updated</th>
+            </tr>
+            </tfoot>
             @foreach($users as $user)
                 <tr>
                     <td></td>
@@ -31,10 +32,11 @@
                     <td>{{{ $user->updated_at }}}</td>
                 </tr>
             @endforeach
-        <tbody>
+            <tbody>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 @stop
 
 @section('page-script')

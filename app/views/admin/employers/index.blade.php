@@ -1,39 +1,40 @@
 @extends('layouts.admin')
 
 @section('content')
-    @if(Session::has('success'))
-        <div class="alert alert-success">
-            <span>{{ Session::get('success') }}</span>
-        </div>
-    @endif
+    <div class="content">
+        @if(Session::has('success'))
+            <div class="alert alert-success">
+                <span>{{ Session::get('success') }}</span>
+            </div>
+        @endif
 
-    <a href="/admin/organizations/create" class="btn btn-primary">Create New Organization</a>
-    <br/>
-    <br/>
-    <table id="example" class="display table table-striped" cellspacing="0" width="100%">
-        <thead>
-        <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th>Created</th>
-            <th>Updated</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
+        <a href="/admin/organizations/create" class="btn btn-primary">Create New Organization</a>
+        <br/>
+        <br/>
+        <table id="example" class="display table table-striped" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
 
-        <tfoot>
-        <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th>Created</th>
-            <th>Updated</th>
-            <th>Actions</th>
-        </tr>
-        </tfoot>
+            <tfoot>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Actions</th>
+            </tr>
+            </tfoot>
             @foreach($employers as $employer)
                 <tr>
                     <td></td>
@@ -49,10 +50,11 @@
                     </td>
                 </tr>
             @endforeach
-        <tbody>
+            <tbody>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 @stop
 
 @section('page-script')
