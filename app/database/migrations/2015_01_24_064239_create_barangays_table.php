@@ -1,4 +1,4 @@
-<?php
+integer<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,9 +15,9 @@ class CreateBarangaysTable extends Migration {
 		Schema::create('barangays', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->int('barangay');
-			$table->int('locality');
-			$table->int('district');
+			$table->integer('barangay');
+			$table->integer('locality');
+			$table->integer('district');
 			$table->string('rep1');
 			$table->string('rep2');
 			$table->string('contact1');
