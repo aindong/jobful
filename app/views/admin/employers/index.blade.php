@@ -1,6 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+            <span>{{ Session::get('success') }}</span>
+        </div>
+    @endif
+
     <a href="/admin/employers/create" class="btn btn-primary">Create New Organization</a>
     <br/>
     <br/>

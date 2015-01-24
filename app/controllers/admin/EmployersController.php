@@ -47,6 +47,8 @@ class EmployersController extends \BaseController {
 
 		Employer::create($data);
 
+		\Session::flash('success', 'Successfully created a new organization');
+
 		return Redirect::route('admin.employers.index');
 	}
 
