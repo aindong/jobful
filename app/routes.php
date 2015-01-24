@@ -25,10 +25,10 @@ Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function
 	Route::resource('barangaychairmen', 'BarangayChairmenController');
 
     Route::resource('courses', 'CoursesController');
+    Route::resource('requests', 'RequestsController', ['only' => ['index', 'edit', 'update']]);
+    Route::resource('events', 'EventsController');
 
     Route::get('users', 'UsersController@index');
-
-    Route::resource('requests', 'RequestsController', ['only' => ['index', 'edit', 'update']]);
 });
 
 // Login routes
