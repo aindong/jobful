@@ -18,19 +18,11 @@ class RequestsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('admin.requests.index');
-	}
 
-	/**
-	 * Display the specified resource.
-	 * GET /requests/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		return View::make('admin.requests.show');
+		$all = \TrainingRequest::all();
+
+		return View::make('admin.requests.index')
+			->with('list', $all);
 	}
 
 	/**
@@ -42,7 +34,16 @@ class RequestsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return View::make('admin.requests.edit');
+		$request = \TrainingRequest::find($id);
+		$lookup = \Course::all();
+		$courses = [];
+		foreach ($lookup as $key => $value) {
+			$courses[$value->id] = $value->title;
+		}
+
+		return View::make('admin.requests.edit')
+            ->with('request', $request)
+            ->with('courses', $courses);
 	}
 
 	/**
@@ -54,7 +55,13 @@ class RequestsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$status = (int)Input::get('status');
+		$request = \TrainingRequest::find($id);
+		$request->status = $status;
+		$request->save();
+
+		return Redirect::route( 'admin.requests.edit', $id )
+			->withMessage( 'Data passed validation checks' );
 	}
 
 	/**
