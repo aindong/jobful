@@ -29,7 +29,7 @@
 </div>
 
 <div class="form-group">
-    {{ Form::label('address2', 'Address 2' *, ['class' => 'form-label']) }}
+    {{ Form::label('address2', 'Address 2 *', ['class' => 'form-label']) }}
     {{ Form::text('address2', null, ['class' => 'form-control', 'required' => 'required']) }}
 </div>
 
