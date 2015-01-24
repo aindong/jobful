@@ -47,7 +47,9 @@ class EmployersController extends \BaseController {
 
 		Employer::create($data);
 
-		return Redirect::route('admin.employers.index');
+		\Session::flash('success', 'Successfully created a new organization');
+
+		return Redirect::route('admin.organizations.index');
 	}
 
 	/**
@@ -95,7 +97,7 @@ class EmployersController extends \BaseController {
 
 		$employer->update($data);
 
-		return Redirect::route('admin.employers.index');
+		return Redirect::route('admin.organizations.index');
 	}
 
 	/**
@@ -108,7 +110,7 @@ class EmployersController extends \BaseController {
 	{
 		Employer::destroy($id);
 
-		return Redirect::route('admin.employers.index');
+		return Redirect::route('admin.organizations.index');
 	}
 
 }

@@ -47,6 +47,8 @@ class TrainersController extends \BaseController {
 
 		Trainer::create($data);
 
+		\Session::flash('success', 'Successfully created a new trainer');
+
 		return Redirect::route('admin.trainers.index');
 	}
 

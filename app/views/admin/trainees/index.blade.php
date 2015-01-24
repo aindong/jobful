@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
+<a href="/admin/trainees/create" class="btn btn-primary">Create New Trainee</a>
+    <br/>
+    <br/>
     <table id="example" class="display table table-striped" cellspacing="0" width="100%">
         <thead>
         <tr>

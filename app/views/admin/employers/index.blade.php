@@ -1,7 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-    <a href="/admin/employers/create" class="btn btn-primary">Create New Organization</a>
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+            <span>{{ Session::get('success') }}</span>
+        </div>
+    @endif
+
+    <a href="/admin/organizations/create" class="btn btn-primary">Create New Organization</a>
     <br/>
     <br/>
     <table id="example" class="display table table-striped" cellspacing="0" width="100%">
@@ -37,7 +43,7 @@
                     <td>{{{ $employer->created_at }}}</td>
                     <td>{{{ $employer->updated_at }}}</td>
                     <td>
-                        <a href="/admin/employers/{{{ $employer->id }}}/edit">Edit</a>
+                        <a href="/admin/organizations/{{{ $employer->id }}}/edit">Edit</a>
                         |
                         <a href="#" data-id="{{ $employer->id }}">Delete</a>
                     </td>
