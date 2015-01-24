@@ -6,6 +6,8 @@ use Redirect;
 use Validator;
 use Input;
 use Response;
+use \Sentry;
+use Session;
 
 class TrainersController extends \BaseController {
 
@@ -45,11 +47,49 @@ class TrainersController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		Trainer::create($data);
+		// Register a user
+		try
+		{
+			// Create the user
+			$user = Sentry::createUser(array(
+				'email'     => $data['email'],
+				'password'  => $data['password'],
+				'activated' => true,
+			));
 
-		\Session::flash('success', 'Successfully created a new trainer');
+			// Find the group using the group id
+			$adminGroup = Sentry::findGroupByName('trainers');
 
-		return Redirect::route('admin.trainers.index');
+			// Assign the group to the user
+			$user->addGroup($adminGroup);
+
+			$data['user_id'] = $user->getId();
+			Trainer::create($data);
+
+			\Session::flash('success', 'Successfully created a new trainer');
+
+			return Redirect::route('admin.trainers.index');
+		}
+		catch (\Cartalyst\Sentry\Users\LoginRequiredException $e)
+		{
+			Session::flash('error', 'Login field is required.');
+			return Redirect::back()->withInput();
+		}
+		catch (\Cartalyst\Sentry\Users\PasswordRequiredException $e)
+		{
+			Session::flash('error', 'Password field is required.');
+			return Redirect::back()->withInput();
+		}
+		catch (\Cartalyst\Sentry\Users\UserExistsException $e)
+		{
+			Session::flash('error', 'User with this login already exists.');
+			return Redirect::back()->withInput();
+		}
+		catch (\Cartalyst\Sentry\Groups\GroupNotFoundException $e)
+		{
+			Session::flash('error', 'Group was not found.');
+			return Redirect::back()->withInput();
+		}
 	}
 
 	/**

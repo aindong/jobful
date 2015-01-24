@@ -134,28 +134,34 @@ class SessionController extends \BaseController
             }
             catch (\Cartalyst\Sentry\Users\LoginRequiredException $e)
             {
-                echo 'Login field is required.';
+                Session::flash('error', 'Login field is required.');
+                return Redirect::back()->withInput();
             }
             catch (\Cartalyst\Sentry\Users\PasswordRequiredException $e)
             {
-                echo 'Password field is required.';
+                Session::flash('error', 'Password field is required.');
+                return Redirect::back()->withInput();
             }
             catch (\Cartalyst\Sentry\Users\UserExistsException $e)
             {
-                echo 'User with this login already exists.';
+                Session::flash('error', 'User with this login already exists.');
+                return Redirect::back()->withInput();
             }
             catch (\Cartalyst\Sentry\Groups\GroupNotFoundException $e)
             {
-                echo 'Group was not found.';
+                Session::flash('error', 'Group was not found.');
+                return Redirect::back()->withInput();
             }
         }
         catch (\Cartalyst\Sentry\Groups\NameRequiredException $e)
         {
-            echo 'Name field is required';
+            Session::flash('error', 'Name field is required');
+            return Redirect::back()->withInput();
         }
         catch (\Cartalyst\Sentry\Groups\GroupExistsException $e)
         {
-            echo 'Group already exists';
+            Session::flash('error', 'Group already exists');
+            return Redirect::back()->withInput();
         }
 
         echo 'Successfully setup the accounts';
