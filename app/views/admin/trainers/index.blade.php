@@ -5,11 +5,8 @@
         <thead>
         <tr>
             <th></th>
-            <th>Last Name</th>
-            <th>First Name</th>
-            <th>Middle Name</th>
-            <th>Address 1</th>
-            <th>Address 2</th>
+            <th>Name</th>
+            <th>Address</th>
             <th>Locality</th>
             <th>Administrative Level 1</th>
             <th>Administrative Level 2</th>
@@ -23,11 +20,8 @@
         <tfoot>
         <tr>
             <th></th>
-            <th>Last Name</th>
-            <th>First Name</th>
-            <th>Middle Name</th>
-            <th>Address 1</th>
-            <th>Address 2</th>
+            <th>Name</th>
+            <th>Address</th>
             <th>Locality</th>
             <th>Administrative Level 1</th>
             <th>Administrative Level 2</th>
@@ -40,11 +34,8 @@
             @foreach($trainers as $trainer)
                 <tr>
                     <td></td>
-                    <td>{{{ $trainer->lname }}}</td>
-                    <td>{{{ $trainer->fname }}}</td>
-                    <td>{{{ $trainer->mname }}}</td>
-                    <td>{{{ $trainer->address1 }}}</td>
-                    <td>{{{ $trainer->address2 }}}</td>
+                    <td>{{{ $trainer->lname .", ". $trainer->fname ." ". $trainer->mname }}}</td>
+                    <td>{{{ $trainer->address1 .", ". $trainer->address2 }}}</td>
                     <td>{{{ $trainer->locality }}}</td>
                     <td>{{{ $trainer->administrative_level1 }}}</td>
                     <td>{{{ $trainer->administrative_level2 }}}</td>
