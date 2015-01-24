@@ -54,13 +54,13 @@ Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainer'], func
 /**
  * Trainee routes
  */
-Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainee'], function() {
+Route::group(['namespace' => 'Controllers\Trainee', 'prefix' => 'trainee'], function() {
 	Route::get('/', 'TraineeDashboardController@index');
 });
 
 /**
  * Kapitan routes
  */
-Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainer'], function() {
+Route::group(['namespace' => 'Controllers\Kapitan', 'prefix' => 'trainer'], function() {
 	Route::get('/', 'KapitanDashboardController@index');
 });
