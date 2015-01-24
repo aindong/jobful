@@ -64,6 +64,10 @@ class TrainersController extends \BaseController {
 			$user->addGroup($adminGroup);
 
 			$data['user_id'] = $user->getId();
+
+			unset($data['email']);
+			unset($data['password']);
+
 			Trainer::create($data);
 
 			\Session::flash('success', 'Successfully created a new trainer');
