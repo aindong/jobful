@@ -73,12 +73,16 @@
             <div class="clearfix"></div>
             <div class="employment-informations">
                 <div class="col-xs-4">
-                    <div class="panel">
+                    <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">Job Seeker</h3>
                         </div>
                         <div class="panel-body">
-                            Panel content
+                            <ul class="list">
+                                <li><a href="#">Search Job</a></li>
+                                <li><a href="#">Post Resume</a></li>
+                                <li><a href="#">Job Alerts</a></li>
+                            </ul>
                         </div>
                     </div><!--end of .panel-->
                 </div>
@@ -89,7 +93,11 @@
                             <h3 class="panel-title">Job Function</h3>
                         </div>
                         <div class="panel-body">
-                            Panel content
+                            <ul class="list">
+                                <li><a href="#">Search Job</a></li>
+                                <li><a href="#">Post Resume</a></li>
+                                <li><a href="#">Job Alerts</a></li>
+                            </ul>
                         </div>
                     </div><!--end of .panel-->
                 </div>
@@ -100,7 +108,9 @@
                             <h3 class="panel-title">Employer</h3>
                         </div>
                         <div class="panel-body">
-                            Panel content
+                            <ul class="list">
+                                <li><a href="#">Post a job</a></li>
+                            </ul>
                         </div>
                     </div><!--end of .panel-->
                 </div>
