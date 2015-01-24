@@ -29,7 +29,7 @@
 </div>
 
 <div class="form-group">
-    {{ Form::label('address2', 'Address 2' *, ['class' => 'form-label']) }}
+    {{ Form::label('address2', 'Address 2 *', ['class' => 'form-label']) }}
     {{ Form::text('address2', null, ['class' => 'form-control', 'required' => 'required']) }}
 </div>
 
@@ -44,7 +44,7 @@
 </div>
 
 <div class="form-group">
-    {{ Form::label('administrative_level2', 'Administrative Level 2' *, ['class' => 'form-label']) }}
+    {{ Form::label('administrative_level2', 'Administrative Level 2 *', ['class' => 'form-label']) }}
     {{ Form::text('administrative_level2', null, ['class' => 'form-control', 'required' => 'required']) }}
 </div>
 
@@ -94,4 +94,6 @@
     {{ Form::text('occupation', null, ['class' => 'form-control', 'required' => 'required']) }}
 </div>
 
+
+<a href="/admin/trainees" class="btn btn-default">Back</a>
 <button type="submit" class="btn btn-default">Submit</button>
