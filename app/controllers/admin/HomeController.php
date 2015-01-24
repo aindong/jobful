@@ -1,6 +1,6 @@
-<?php
+<?php namespace Controllers\Admin;
 
-class HomeController extends BaseController {
+class HomeController extends \BaseController {
 
 	/*
 	|--------------------------------------------------------------------------

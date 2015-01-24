@@ -1,4 +1,4 @@
-<?php
+<?php namespace Controllers\Admin;
 
 class BarangaysController extends \BaseController {
 
