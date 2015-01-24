@@ -58,7 +58,7 @@
                                 @foreach($courses as $course)
                                     <div class="col-xs-6">
                                         <ul class="list">
-                                            <li><a href="#">{{{ $course->title }}}</a></li>
+                                            <li><a href="/training/{{{ $course->id }}}">{{{ $course->title }}}</a></li>
                                         </ul>
                                     </div>
                                 @endforeach

@@ -9,10 +9,10 @@
 
 <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-        
+
         <div class="page-header">
             <h1><span class="glyphicon glyphicon-flash"></span> Request Training</h1>
-        </div>  
+        </div>
 
 <!-- FORM STARTS HERE -->
 {{ Form::open( array(
@@ -26,7 +26,7 @@
     {{ HTML::ul($errors->all()) }}
 </div>
 @endif
-    
+
     <div class="form-group @if ($errors->has('title')) has-error @endif">
         {{ Form::label( 'courses', 'Courses (Please Check)' ) }}
         {{ Form::text( 'title', Input::old('title'), array(
@@ -79,42 +79,42 @@
     <div class="form-group @if ($errors->has('locality')) has-error @endif">
         {{ Form::label( 'locality', 'Municipality:' ) }}
         {{ Form::text( 'locality' ) }}
-        
+
         @if ($errors->has('locality')) <p class="help-block">{{ $errors->first('locality') }}</p> @endif
     </div>
 
     <div class="form-group @if ($errors->has('district')) has-error @endif">
         {{ Form::label( 'district', 'District:' ) }}
         {{ Form::text( 'district' ) }}
-        
+
         @if ($errors->has('district')) <p class="help-block">{{ $errors->first('district') }}</p> @endif
     </div>
 
     <div class="form-group @if ($errors->has('contact1')) has-error @endif">
         {{ Form::label( 'contact1', 'Contact #:' ) }}
         {{ Form::text( 'contact1' ) }}
-        
+
         @if ($errors->has('contact1')) <p class="help-block">{{ $errors->first('contact1') }}</p> @endif
     </div>
 
     <div class="form-group @if ($errors->has('contact2')) has-error @endif">
         {{ Form::label( 'contact2', 'Contact #2 (optional):' ) }}
         {{ Form::text( 'contact2' ) }}
-        
+
         @if ($errors->has('contact1')) <p class="help-block">{{ $errors->first('contact1') }}</p> @endif
     </div>
 
     <div class="form-group @if ($errors->has('email')) has-error @endif">
         {{ Form::label( 'email', 'Email:' ) }}
         {{ Form::text( 'email' ) }}
-        
+
         @if ($errors->has('email')) <p class="help-block">{{ $errors->first('email') }}</p> @endif
     </div>
 
     <div class="form-group @if ($errors->has('type')) has-error @endif">
         {{ Form::label( 'participants', '# of expected participants:' ) }}
         {{ Form::text( 'participants' ) }}
-        
+
         @if ($errors->has('participants')) <p class="help-block">{{ $errors->first('participants') }}</p> @endif
     </div>
 
@@ -131,5 +131,5 @@
 
 </div>
 </div>
-    
+
 @stop
