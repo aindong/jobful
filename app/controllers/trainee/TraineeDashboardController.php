@@ -1,7 +1,8 @@
 <?php namespace Controllers\Trainee;
 
 use View;
-use TrainingRequest;
+use Models\Models\Event;
+use Sentry;
 
 class TraineeDashboardController extends \BaseController
 {
@@ -14,9 +15,9 @@ class TraineeDashboardController extends \BaseController
     {
         $user = Sentry::getUser();
 
-    	$training = TrainingRequest::find($user->id)->get();
+        $event = \Models\Event::where('trainer_id', $user->getId())->get();
 
         return View::make('trainee.request')
-        ->with('training', $training);
+        ->with('event', $event);
     }
 }

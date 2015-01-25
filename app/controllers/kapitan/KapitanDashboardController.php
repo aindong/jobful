@@ -2,6 +2,7 @@
 
 use View;
 use TrainingRequest;
+use Sentry;
 
 class KapitanDashboardController extends \BaseController
 {
@@ -14,7 +15,7 @@ class KapitanDashboardController extends \BaseController
     {
         $user = Sentry::getUser();
 
-    	$training = TrainingRequest::find($user->id)->get();
+        $training = TrainingRequest::all();
 
         return View::make('kapitan.request')
         ->with('training', $training);

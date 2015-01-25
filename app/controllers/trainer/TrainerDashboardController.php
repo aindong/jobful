@@ -1,7 +1,8 @@
 <?php namespace Controllers\Trainer;
 
 use View;
-use TrainingRequest;
+use Models\Models\Event;
+use Sentry;
 
 class TrainerDashboardController extends \BaseController
 {
@@ -14,9 +15,22 @@ class TrainerDashboardController extends \BaseController
     {
         $user = Sentry::getUser();
 
-    	$training = TrainingRequest::find($user->id)->get();
+    	$event = \Models\Event::where('trainer_id', $user->getId())->get();
 
         return View::make('trainer.request')
-        ->with('training', $training);
+        ->with('event', $event);
+    }
+
+    /**
+     * Show the form for editing the specified trainer.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        $trainer = Trainer::find($id);
+
+        return View::make('trainers.edit', compact('trainer'));
     }
 }

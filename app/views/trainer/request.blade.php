@@ -7,35 +7,41 @@
             <thead>
             <tr>
                 <th></th>
-                <th>Name</th>
-                <th>Barangay</th>
-                <th>District</th>
-                <th>Locality</th>
-                <th>Contact</th>
-                <th>Email</th>
+                <th>Trainer</th>
+                <th>Course</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Participants</th>
+                <th>Present Attendees</th>
+                <th>Created Date</th>
+                <th>Updated Date</th>
             </tr>
             </thead>
 
             <tfoot>
             <tr>
                 <th></th>
-                <th>Name</th>
-                <th>Barangay</th>
-                <th>District</th>
-                <th>Locality</th>
-                <th>Contact</th>
-                <th>Email</th>
+                <th>Trainer</th>
+                <th>Course</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Participants</th>
+                <th>Present Attendees</th>
+                <th>Created Date</th>
+                <th>Updated Date</th>
             </tr>
             </tfoot>
-            @foreach($training as $train)
+            @foreach($event as $evt)
                 <tr>
                     <td></td>
-                    <td>{{{ $train->lname . ', ' . $train->fname . ' ' . $train->mname }}}</td>
-                    <td>{{{ $train->barangay }}}</td>
-                    <td>{{{ $train->district }}}</td>
-                    <td>{{{ $train->locality }}}</td>
-                    <td>{{{ $train->contact1 }}}</td>
-                    <td>{{{ $train->email }}}</td>
+                    <td>{{{ $evt->trainer->lname . ', ' . $evt->trainer->fname . ' ' . $evt->trainer->mname }}}</td>
+                    <td>{{{ $evt->course->title }}}</td>
+                    <td>{{{ $evt->start_date }}}</td>
+                    <td>{{{ $evt->end_date }}}</td>
+                    <td>{{{ $evt->participants }}}</td>
+                    <td>{{{ $evt->present_attendees }}}</td>
+                    <td>{{{ $evt->created_at }}}</td>
+                    <td>{{{ $evt->updated_at }}}</td>
                 </tr>
             @endforeach
             <tbody>
