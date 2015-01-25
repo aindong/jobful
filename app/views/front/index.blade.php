@@ -24,6 +24,7 @@
                         </div>
                     @endif
 
+                    @if(!Sentry::check())
                     {{ Form::open(['route' => 'user.dologin', 'class' => 'form']) }}
                     <div class="form-group">
                         {{ Form::label('email', 'Email', ['class' => 'form-label']) }}
@@ -37,6 +38,27 @@
 
                     <button type="submit" class="form-control btn button-submit">Submit</button>
                     {{ Form::close() }}
+                    @else
+                        <div class="container">
+                            <?php
+                                $to = '/admin';
+
+                                if (Sentry::getUser()->inGroup(Sentry::findGroupByName('super admin'))) {
+                                    $to = '/admin';
+                                } else if (Sentry::getUser()->inGroup(Sentry::findGroupByName('admin'))) {
+                                    $to = '/admin';
+                                } else if (Sentry::getUser()->inGroup(Sentry::findGroupByName('trainers'))) {
+                                    $to = '/trainer';
+                                } else if (Sentry::getUuser()->inGroup(Sentry::findGroupByName('trainee'))) {
+                                    $to = '/trainee';
+                                } else if (Sentry::getUser()->inGroup(Sentry::findGroupByName('kapitan'))) {
+                                    $to = '/kapitan';
+                                }
+                            ?>
+                            <a href="<?php echo $to; ?>" class="btn button-submit">Go to Dashboard</a>
+                            <a href="/logout" class="btn button-submits">Logout</a>
+                        </div>
+                    @endif
                 </div><!--end of .login-->
 
             </div><!--end of .row-->
