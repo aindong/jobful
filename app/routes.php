@@ -62,7 +62,7 @@ Route::group(['namespace' => 'Controllers\Front'], function() {
 Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainer', 'before' => 'Sentry|inGroup:trainers'], function() {
 	Route::get('/', 'TrainerDashboardController@index');
 	Route::get('/requests', 'TrainerDashboardController@request');
-	Route::get('training/{id}/edit', 'TrainerDashboardController@edit');
+	Route::get('/my-profile', 'TrainerDashboardController@edit');
 });
 
 /**
@@ -71,6 +71,7 @@ Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainer', 'befo
 Route::group(['namespace' => 'Controllers\Trainee', 'prefix' => 'trainee', 'before' => 'Sentry|inGroup:trainee'], function() {
 	Route::get('/', 'TraineeDashboardController@index');
 	Route::get('/requests', 'TraineeDashboardController@request');
+	Route::get('/my-profile', 'TraineeDashboardController@edit');
 });
 
 /**
@@ -79,4 +80,5 @@ Route::group(['namespace' => 'Controllers\Trainee', 'prefix' => 'trainee', 'befo
 Route::group(['namespace' => 'Controllers\Kapitan', 'prefix' => 'kapitan', 'before' => 'Sentry|inGroup:kapitan'], function() {
 	Route::get('/', 'KapitanDashboardController@index');
 	Route::get('/requests', 'KapitanDashboardController@request');
+	Route::get('/my-profile', 'KapitanDashboardController@edit');
 });

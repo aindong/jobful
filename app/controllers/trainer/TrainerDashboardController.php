@@ -3,6 +3,7 @@
 use View;
 use Models\Models\Event;
 use Sentry;
+use Trainer;
 
 class TrainerDashboardController extends \BaseController
 {
@@ -24,13 +25,14 @@ class TrainerDashboardController extends \BaseController
     /**
      * Show the form for editing the specified trainer.
      *
-     * @param  int  $id
      * @return Response
      */
-    public function edit($id)
+    public function edit()
     {
-        $trainer = Trainer::find($id);
+        $user = Sentry::getUser();
 
-        return View::make('trainers.edit', compact('trainer'));
+        $trainer = Trainer::find($user->getId());
+
+        return View::make('trainer.edit', compact('trainer'));
     }
 }

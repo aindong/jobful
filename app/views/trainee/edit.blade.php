@@ -1,21 +1,21 @@
-@extends('layouts.trainer')
+@extends('layouts.trainee')
 
 @section('content')
 
 <div class="page-header">
-    <a href="{{{ URL::to('/trainer') }}}" class="pull-right btn">Cancel</a>
+    <a href="{{{ URL::to('/trainee') }}}" class="pull-right btn">Cancel</a>
     <h1>My Profile</h1>
     <div class="clearfix"></div>
 </div>  
 
 
-    {{ Form::model($trainer, [
+    {{ Form::model($trainee, [
         'method' => 'post',
         'class' => 'form',
         'role' => 'form'
     ]) }}
 
-    @include('trainer.form.form')
+    @include('trainee.form.form')
 
     {{ Form::close() }}
 @stop

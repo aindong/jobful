@@ -17,7 +17,7 @@
         </div>
 
         <li><a href="/kapitan/requests">Training Requests</a></li>
-        <li><a href="/trainee/my-profile">My Profile</a></li>
+        <li><a href="/kapitan/my-profile">My Profile</a></li>
     </ul>
 </aside>
 

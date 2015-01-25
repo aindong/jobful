@@ -3,6 +3,7 @@
 use View;
 use Models\Models\Event;
 use Sentry;
+use Trainee;
 
 class TraineeDashboardController extends \BaseController
 {
@@ -19,5 +20,19 @@ class TraineeDashboardController extends \BaseController
 
         return View::make('trainee.request')
         ->with('event', $event);
+    }
+
+    /**
+     * Show the form for editing the specified trainee.
+     *
+     * @return Response
+     */
+    public function edit()
+    {
+        $user = Sentry::getUser();
+
+        $trainee = Trainee::find($user->getId());
+
+        return View::make('trainee.edit', compact('trainee'));
     }
 }
