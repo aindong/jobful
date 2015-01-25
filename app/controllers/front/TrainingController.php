@@ -104,8 +104,8 @@ class TrainingController extends \BaseController {
 	public function show($id)
 	{
 		$course = \Course::findOrFail($id);
-
-		return View::make('front.training.index')
+ 
+		return View::make('front.training.show')
 			->with('course', $course);
 	}
 
