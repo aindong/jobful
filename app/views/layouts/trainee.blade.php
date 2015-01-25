@@ -16,7 +16,7 @@
             <a href="{{{ URL::to('/trainee') }}}"><img src="/img/logo.png" alt="" width="150"/></a>
         </div>
 
-        <li><a href="/trainee/my-trainings">My Trainings</a></li>
+        <li><a href="/trainee/requests">My Trainings</a></li>
         <li><a href="/trainee/my-profile">My Profile</a></li>
     </ul>
 </aside>

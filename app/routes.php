@@ -59,6 +59,7 @@ Route::group(['namespace' => 'Controllers\Front'], function() {
  */
 Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainer'], function() {
 	Route::get('/', 'TrainerDashboardController@index');
+	Route::get('/requests', 'TrainerDashboardController@request');
 });
 
 /**
@@ -66,6 +67,7 @@ Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainer'], func
  */
 Route::group(['namespace' => 'Controllers\Trainee', 'prefix' => 'trainee'], function() {
 	Route::get('/', 'TraineeDashboardController@index');
+	Route::get('/requests', 'TraineeDashboardController@request');
 });
 
 /**
