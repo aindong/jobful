@@ -73,4 +73,5 @@ Route::group(['namespace' => 'Controllers\Trainee', 'prefix' => 'trainee'], func
  */
 Route::group(['namespace' => 'Controllers\Kapitan', 'prefix' => 'kapitan'], function() {
 	Route::get('/', 'KapitanDashboardController@index');
+	Route::get('/requests', 'KapitanDashboardController@request');
 });
