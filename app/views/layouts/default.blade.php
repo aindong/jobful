@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="/packages/bootstrap/3/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" href="/packages/bootstrap/3/js/bootstrap.min.js"></script>
+
+    @yield('script')
 </head>
 <body>
 <header>
@@ -29,7 +34,7 @@
                         <ul class="nav navbar-nav menu pull-right">
                             <li><a href="{{{ URL::to('/training') }}}">Training</a></li>
                             <li><a href="{{{ URL::to('/statistics') }}}">Statistics</a></li>
-                            <li><a href="{{{ URL::to('/') }}}">About</a></li>
+                            <li><a href="{{{ URL::to('/about') }}}">About</a></li>
                             <li><a href="{{{ URL::to('/') }}}">Contact</a></li>
                             <li><a href="{{{ URL::to('/login') }}}">Login</a></li>
                         </ul>
@@ -84,9 +89,6 @@
     </div><!--end of .container-->
 </footer>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" href="/packages/bootstrap/3/js/bootstrap.min.js"></script>
 
-@yield('script')
 </body>
 </html>

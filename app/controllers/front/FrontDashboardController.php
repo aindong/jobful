@@ -12,4 +12,9 @@ class FrontDashboardController extends \BaseController
         return View::make('front.index')
             ->with('courses', $courses);
     }
+
+    public function about()
+    {
+        return View::make('front.about');
+    }
 }

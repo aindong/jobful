@@ -44,9 +44,11 @@ Route::group(['namespace' => 'Controllers\Admin'], function() {
  */
 Route::group(['namespace' => 'Controllers\Front'], function() {
     Route::get('/', 'FrontDashboardController@index');
+    Route::get('/about', 'FrontDashboardController@about');
         
     Route::get('training', 'TrainingController@index');
     Route::get('statistics', 'TrainingController@stat');
+    Route::get('ajax/statistics/filter', 'TrainingController@stat_filter');
     Route::get('training/{id}/show', 'TrainingController@show');
     Route::get('training/request', 'TrainingController@request');
     Route::post('training/store', 'TrainingController@store');
