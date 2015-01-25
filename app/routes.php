@@ -59,7 +59,7 @@ Route::group(['namespace' => 'Controllers\Front'], function() {
 /**
  * Trainer routes
  */
-Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainer', 'before' => 'Sentry|inGroup:trainer'], function() {
+Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainer', 'before' => 'Sentry|inGroup:trainers'], function() {
 	Route::get('/', 'TrainerDashboardController@index');
 	Route::get('/requests', 'TrainerDashboardController@request');
 	Route::get('training/{id}/edit', 'TrainerDashboardController@edit');
