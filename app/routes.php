@@ -69,6 +69,6 @@ Route::group(['namespace' => 'Controllers\Trainee', 'prefix' => 'trainee'], func
 /**
  * Kapitan routes
  */
-Route::group(['namespace' => 'Controllers\Kapitan', 'prefix' => 'trainer'], function() {
+Route::group(['namespace' => 'Controllers\Kapitan', 'prefix' => 'kapitan'], function() {
 	Route::get('/', 'KapitanDashboardController@index');
 });
