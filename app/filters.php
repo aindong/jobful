@@ -108,18 +108,25 @@ Route::filter('inGroup', function($route, $request, $value)
 
 		if( ! $user->inGroup($group))
 		{
-			return Redirect::route('cms.login')->withErrors(array(Lang::get('user.noaccess')));
+			return Redirect::route('user.login')->withErrors(array(Lang::get('user.noaccess')));
 		}
 	}
 	catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
 	{
 		Session::flash('error', 'You have no permission to access the page you are requesting.');
-		return Redirect::route('/login');
+		return Redirect::route('user.login');
 	}
 
 	catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e)
 	{
 		Session::flash('error', 'You have no permission to access the page you are requesting.');
-		return Redirect::route('/login');
+		return Redirect::route('user.login');
+	}
+});
+
+Route::filter('Sentry', function()
+{
+	if ( ! Sentry::check()) {
+		return Redirect::route('user.login');
 	}
 });

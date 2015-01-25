@@ -14,7 +14,7 @@
 /**
  * Admin routes
  */
-Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function() {
+Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin', 'before' => 'Sentry|inGroup:super admin'], function() {
 	Route::get('/', 'AdminDashboardController@index');
 	Route::get('/calendar', 'AdminDashboardController@calendar');
 
@@ -32,7 +32,7 @@ Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function
 });
 
 // Login routes
-Route::group(['namespace' => 'Controllers\Admin'], function() {
+Route::group(['namespace' => 'Controllers\Admin', 'before' => 'Sentry|inGroup:super admin'], function() {
 	Route::get('/login', ['as' => 'user.login', 'uses' => 'SessionController@login']);
 	Route::get('/logout', ['as' => 'user.login', 'uses' => 'SessionController@logout']);
 	Route::post('/login', ['as' => 'user.dologin', 'uses' => 'SessionController@doLogin']);
@@ -57,7 +57,7 @@ Route::group(['namespace' => 'Controllers\Front'], function() {
 /**
  * Trainer routes
  */
-Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainer'], function() {
+Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainer', 'before' => 'Sentry|inGroup:trainer'], function() {
 	Route::get('/', 'TrainerDashboardController@index');
 	Route::get('/requests', 'TrainerDashboardController@request');
 });
@@ -65,7 +65,7 @@ Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainer'], func
 /**
  * Trainee routes
  */
-Route::group(['namespace' => 'Controllers\Trainee', 'prefix' => 'trainee'], function() {
+Route::group(['namespace' => 'Controllers\Trainee', 'prefix' => 'trainee', 'before' => 'Sentry|inGroup:trainee'], function() {
 	Route::get('/', 'TraineeDashboardController@index');
 	Route::get('/requests', 'TraineeDashboardController@request');
 });
@@ -73,7 +73,7 @@ Route::group(['namespace' => 'Controllers\Trainee', 'prefix' => 'trainee'], func
 /**
  * Kapitan routes
  */
-Route::group(['namespace' => 'Controllers\Kapitan', 'prefix' => 'kapitan'], function() {
+Route::group(['namespace' => 'Controllers\Kapitan', 'prefix' => 'kapitan', 'before' => 'Sentry|inGroup:kapitan'], function() {
 	Route::get('/', 'KapitanDashboardController@index');
 	Route::get('/requests', 'KapitanDashboardController@request');
 });
