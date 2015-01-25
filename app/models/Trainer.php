@@ -14,4 +14,8 @@ class Trainer extends \Eloquent {
 	{
 		return $this->belongsTo('User', 'user_id');
 	}
+	public function event()
+	{
+		return $this->belongsTo('Event', 'trainer_id');
+	}
 }

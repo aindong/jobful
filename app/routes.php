@@ -14,7 +14,7 @@
 /**
  * Admin routes
  */
-Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin'], function() {
+Route::group(['namespace' => 'Controllers\Admin', 'prefix' => 'admin', 'before' => 'Sentry|inGroup:super admin'], function() {
 	Route::get('/', 'AdminDashboardController@index');
 	Route::get('/calendar', 'AdminDashboardController@calendar');
 
@@ -59,20 +59,24 @@ Route::group(['namespace' => 'Controllers\Front'], function() {
 /**
  * Trainer routes
  */
-Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainer'], function() {
+Route::group(['namespace' => 'Controllers\Trainer', 'prefix' => 'trainer', 'before' => 'Sentry|inGroup:trainer'], function() {
 	Route::get('/', 'TrainerDashboardController@index');
+	Route::get('/requests', 'TrainerDashboardController@request');
+	Route::get('training/{id}/edit', 'TrainerDashboardController@edit');
 });
 
 /**
  * Trainee routes
  */
-Route::group(['namespace' => 'Controllers\Trainee', 'prefix' => 'trainee'], function() {
+Route::group(['namespace' => 'Controllers\Trainee', 'prefix' => 'trainee', 'before' => 'Sentry|inGroup:trainee'], function() {
 	Route::get('/', 'TraineeDashboardController@index');
+	Route::get('/requests', 'TraineeDashboardController@request');
 });
 
 /**
  * Kapitan routes
  */
-Route::group(['namespace' => 'Controllers\Kapitan', 'prefix' => 'kapitan'], function() {
+Route::group(['namespace' => 'Controllers\Kapitan', 'prefix' => 'kapitan', 'before' => 'Sentry|inGroup:kapitan'], function() {
 	Route::get('/', 'KapitanDashboardController@index');
+	Route::get('/requests', 'KapitanDashboardController@request');
 });

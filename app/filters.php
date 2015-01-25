@@ -88,3 +88,45 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/*
+ * SENTRY FILTERS
+ */
+
+/**
+ * InGroup filter
+ *
+ * Check if the user belongs to a group
+ */
+Route::filter('inGroup', function($route, $request, $value)
+{
+	try
+	{
+		$user = Sentry::getUser();
+
+		$group = Sentry::findGroupByName($value);
+
+		if( ! $user->inGroup($group))
+		{
+			return Redirect::route('user.login')->withErrors(array(Lang::get('user.noaccess')));
+		}
+	}
+	catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
+	{
+		Session::flash('error', 'You have no permission to access the page you are requesting.');
+		return Redirect::route('user.login');
+	}
+
+	catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e)
+	{
+		Session::flash('error', 'You have no permission to access the page you are requesting.');
+		return Redirect::route('user.login');
+	}
+});
+
+Route::filter('Sentry', function()
+{
+	if ( ! Sentry::check()) {
+		return Redirect::route('user.login');
+	}
+});
