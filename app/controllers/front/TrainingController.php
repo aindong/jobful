@@ -109,4 +109,43 @@ class TrainingController extends \BaseController {
 			->with('course', $course);
 	}
 
+    /**
+     * Due to time constraint, this is only a demo
+     */
+    function stat_filter() {
+        $type = Input::get('type');
+        $id = Input::get('id');
+
+        $data = [
+            'ANAO' => "",
+            'CAMILING' => "",
+            'MAYANTOC' => "",
+            'MONCADA' => "",
+            'PANIQUI' => "Beadworks: 104<br/>",
+            'PURA' => "",
+            'RAMOS' => "",
+            'SAN CLEMENTE' => "",
+            'SAN MANUEL' => "",
+            'STA. IGNACIA' => "",
+            'GERONA' => "",
+            'SAN JOSE' => "",
+            'TARLAC CITY' => "",
+            'VICTORIA' => "",
+            'BAMBAN' => "",
+            'CAPAS' => "Bag Making (PGT - D\'Luxe): 501<br/>Barista: 47<br/>",
+            'CONCEPCION' => "",
+            'LAPAZ' => "",
+            ];
+
+        $max = rand(0, 10);
+        array_splice($data, $max);
+
+        $locs = [];
+        foreach ($data as $key => $value) {
+            $locs[] = ['info' => $value, 'address' => $key . ', Tarlac, Philippines'];
+        }
+    
+        return Response::json($locs);
+    }
+
 }

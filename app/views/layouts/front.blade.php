@@ -29,7 +29,7 @@
                         <ul class="nav navbar-nav menu pull-right">
                             <li><a href="{{{ URL::to('/training') }}}">Training</a></li>
                             <li><a href="{{{ URL::to('/statistics') }}}">Statistics</a></li>
-                            <li><a href="{{{ URL::to('/') }}}">About</a></li>
+                            <li><a href="{{{ URL::to('/about') }}}">About</a></li>
                             <li><a href="{{{ URL::to('/') }}}">Contact</a></li>
                             <li><a href="{{{ URL::to('/login') }}}">Login</a></li>
                         </ul>
