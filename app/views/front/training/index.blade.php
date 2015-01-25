@@ -24,62 +24,28 @@ Usu torquatos voluptatibus in. Ut graece delectus periculis sea. Ex vix alii pur
 
 </p>
 
-    
-    <h1>Statistics</h1>
-    <div id="chart_div"></div>
-
+<div class="training-courses">
+                <div class="container">
+                    <div class="row">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">Community based training program skills training to employment</h2>
+                            </div><!--end of .panel-heading-->
+                            <div class="panel-body">
+                                <?php $i = 0; ?>
+                                @foreach($courses as $course)
+                                    <div class="col-xs-6">
+                                        <ul class="list">
+                                            <li><a href="/training/{{{ $course->id }}}/show">{{{ $course->title }}}</a></li>
+                                        </ul>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div><!--end of .panel-->
+                    </div><!--end of .row-->
+                </div><!--end of .container-->
+            </div><!--end of .training-courses-->
 
 </div>
 
-@stop
-
-<?php
-$data = [
-'ANAO' => "",
-'CAMILING' => "",
-'MAYANTOC' => "",
-'MONCADA' => "",
-'PANIQUI' => "Beadworks: 104<br/>",
-'PURA' => "",
-'RAMOS' => "",
-'SAN CLEMENTE' => "",
-'SAN MANUEL' => "",
-'STA. IGNACIA' => "",
-'GERONA' => "",
-'SAN JOSE' => "",
-'TARLAC CITY' => "",
-'VICTORIA' => "",
-'BAMBAN' => "",
-'CAPAS' => "Bag Making (PGT - D\'Luxe): 501<br/>Barista: 47<br/>",
-'CONCEPCION' => "",
-'LAPAZ' => "",
-];
-
-$arr = [];
-foreach ($data as $place => $item) {
-    $arr[] = "['$place, Tarlac, Philippines', '$item']";
-}
-
-?>
-
-@section('script')
-
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script>
-google.load('visualization', '1', { 'packages': ['map'] });
-google.setOnLoadCallback(drawMap);
-
-function drawMap() {
-  var data = google.visualization.arrayToDataTable([
-    ['Town', 'Course'],
-    <?php echo implode(',', $arr); ?>
-  ]);
-
-var options = { showTip: true };
-
-var map = new google.visualization.Map(document.getElementById('chart_div'));
-
-map.draw(data, options);
-};
-</script>
 @stop

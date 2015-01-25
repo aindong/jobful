@@ -28,6 +28,7 @@
                     <div class="navbar-collapse collapse navbar-responsive-collapse">
                         <ul class="nav navbar-nav menu pull-right">
                             <li><a href="{{{ URL::to('/training') }}}">Training</a></li>
+                            <li><a href="{{{ URL::to('/statistics') }}}">Statistics</a></li>
                             <li><a href="{{{ URL::to('/') }}}">About</a></li>
                             <li><a href="{{{ URL::to('/') }}}">Contact</a></li>
                             <li><a href="{{{ URL::to('/login') }}}">Login</a></li>
@@ -41,7 +42,7 @@
 </header>
 
 
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-md-12">
         @if(Session::has('error'))
