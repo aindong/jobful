@@ -36,7 +36,26 @@
                             <li><a href="{{{ URL::to('/statistics') }}}">Statistics</a></li>
                             <li><a href="{{{ URL::to('/about') }}}">About</a></li>
                             <li><a href="{{{ URL::to('/') }}}">Contact</a></li>
+                            @if(!Sentry::check())
                             <li><a href="{{{ URL::to('/login') }}}">Login</a></li>
+                            @else
+                            <?php
+                                $to = '/admin';
+
+                                if (Sentry::getUser()->inGroup(Sentry::findGroupByName('super admin'))) {
+                                    $to = '/admin';
+                                } else if (Sentry::getUser()->inGroup(Sentry::findGroupByName('admin'))) {
+                                    $to = '/admin';
+                                } else if (Sentry::getUser()->inGroup(Sentry::findGroupByName('trainers'))) {
+                                    $to = '/trainer';
+                                } else if (Sentry::getUuser()->inGroup(Sentry::findGroupByName('trainee'))) {
+                                    $to = '/trainee';
+                                } else if (Sentry::getUser()->inGroup(Sentry::findGroupByName('kapitan'))) {
+                                    $to = '/kapitan';
+                                }
+                            ?>
+                            <li><a href="{{{ URL::to($to) }}}">Dashboard</a></li>
+                            @endif
                         </ul>
                     </div><!--end of .navbar-collapse-->
                 </div>

@@ -36,7 +36,13 @@ class EventsController extends \BaseController {
 		foreach ($lookup as $key => $value) {
 			$courses[$value->id] = $value->title;
 		}
-		$trainers = [];
+
+        $lookup = \Trainer::all();
+        $trainers = [];
+        foreach ($lookup as $key => $value) {
+            $trainers[$value->id] = $value->lname . ', ' . $value->fname;
+        }
+
 		return View::make('admin.events.create')
 			->with('courses', $courses)
 			->with('trainers', $trainers);
@@ -100,7 +106,11 @@ class EventsController extends \BaseController {
 		foreach ($lookup as $key => $value) {
 			$courses[$value->id] = $value->title;
 		}
-		$trainers = [];
+		$lookup = \Trainer::all();
+        $trainers = [];
+        foreach ($lookup as $key => $value) {
+            $trainers[$value->id] = $value->lname . ', ' . $value->fname;
+        }
 
 		return View::make('admin.events.edit')
             ->with('event', $event)
