@@ -7,6 +7,7 @@ use TrainingRequest;
 use TrainingRequestCourse;
 use Input;
 use Redirect;
+use Course;
 
 class TrainingController extends \BaseController {
 
@@ -18,10 +19,41 @@ class TrainingController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('front.training.index');
+        $courses = Course::all();
+
+        return View::make('front.training.index')
+            ->with('courses', $courses);
 	}
 
-	/**
+    public function stat() {
+        $courses = Course::all();
+        $data = [
+            'ANAO' => "",
+            'CAMILING' => "",
+            'MAYANTOC' => "",
+            'MONCADA' => "",
+            'PANIQUI' => "Beadworks: 104<br/>",
+            'PURA' => "",
+            'RAMOS' => "",
+            'SAN CLEMENTE' => "",
+            'SAN MANUEL' => "",
+            'STA. IGNACIA' => "",
+            'GERONA' => "",
+            'SAN JOSE' => "",
+            'TARLAC CITY' => "",
+            'VICTORIA' => "",
+            'BAMBAN' => "",
+            'CAPAS' => "Bag Making (PGT - D\'Luxe): 501<br/>Barista: 47<br/>",
+            'CONCEPCION' => "",
+            'LAPAZ' => "",
+            ];
+
+        return View::make('front.training.stat')
+            ->with('courses', $courses)
+            ->with('data', $data);
+    }
+
+    /**
 	 * Show the form for creating a new resource.
 	 * GET /trainings/create
 	 *
