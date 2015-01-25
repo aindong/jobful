@@ -27,6 +27,7 @@
                 <div class="col-md-6">
                     <div class="navbar-collapse collapse navbar-responsive-collapse">
                         <ul class="nav navbar-nav menu pull-right">
+                            <li><a href="{{{ URL::to('/training') }}}">Training</a></li>
                             <li><a href="{{{ URL::to('/') }}}">About</a></li>
                             <li><a href="{{{ URL::to('/') }}}">Contact</a></li>
                             <li><a href="{{{ URL::to('/login') }}}">Login</a></li>

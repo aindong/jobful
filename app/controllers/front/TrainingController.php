@@ -21,7 +21,7 @@ class TrainingController extends \BaseController {
 		return View::make('front.training.index');
 	}
 
-	/**
+    /**
 	 * Show the form for creating a new resource.
 	 * GET /trainings/create
 	 *
