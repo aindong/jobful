@@ -4,6 +4,7 @@ use View;
 use Models\Models\Event;
 use Sentry;
 use Trainer;
+use User;
 
 class TrainerDashboardController extends \BaseController
 {
@@ -15,8 +16,9 @@ class TrainerDashboardController extends \BaseController
     public function request()
     {
         $user = Sentry::getUser();
+        $trainer = User::find($user->getId());
 
-    	$event = \Models\Event::where('trainer_id', $user->getId())->get();
+    	$event = \Models\Event::where('trainer_id', $trainer->trainer->id)->get();
 
         return View::make('trainer.request')
         ->with('event', $event);
