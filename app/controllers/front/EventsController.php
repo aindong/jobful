@@ -1,4 +1,4 @@
-<?php namespace Controllers\Admin;
+<?php namespace Controllers\Front;
 
 use View;
 use Response;
@@ -17,9 +17,18 @@ class EventsController extends \BaseController {
      */
     public function events()
     {
-        $all = \Models\Event::all();
+        $events = \Models\Event::all();
 
-        return Response::json($all);
+        $result = [];
+        foreach ($events as $event) {
+            $result[] = [
+                'title' => $event->course->title,
+                'start' => $event['start_date'],
+                'end'   => $event['end_date']
+            ];
+        }
+
+        return Response::json($result);
     }
 
 }
