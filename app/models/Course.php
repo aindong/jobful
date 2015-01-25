@@ -13,4 +13,9 @@ class Course extends \Eloquent {
     );
 
 	protected $guarded = [];
+
+    public function event()
+    {
+        return $this->hasOne('Event');
+    }
 }
