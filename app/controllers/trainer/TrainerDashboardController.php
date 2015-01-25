@@ -12,7 +12,9 @@ class TrainerDashboardController extends \BaseController
 
     public function request()
     {
-    	$training = TrainingRequest::all();
+        $user = Sentry::getUser();
+
+    	$training = TrainingRequest::find($user->id)->get();
 
         return View::make('trainer.request')
         ->with('training', $training);

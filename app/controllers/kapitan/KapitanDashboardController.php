@@ -12,7 +12,9 @@ class KapitanDashboardController extends \BaseController
 
     public function request()
     {
-    	$training = TrainingRequest::all();
+        $user = Sentry::getUser();
+
+    	$training = TrainingRequest::find($user->id)->get();
 
         return View::make('kapitan.request')
         ->with('training', $training);
