@@ -87,7 +87,7 @@ class SessionController extends \BaseController
             return Redirect::to('/admin');
         } else if ($user->inGroup(Sentry::findGroupByName('admin'))) {
             return Redirect::to('/admin');
-        } else if ($user->inGroup(Sentry::findGroupByName('trainers'))) {
+        } else if ($user->inGroup(Sentry::findGroupByName('trainer'))) {
             return Redirect::to('/trainer');
         } else if ($user->inGroup(Sentry::findGroupByName('trainee'))) {
             return Redirect::to('/trainee');
